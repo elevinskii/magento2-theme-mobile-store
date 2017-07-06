@@ -56,6 +56,7 @@ module.exports = {
         name: 'IdealCode/MobileStore',
         locale: 'en_US',
         files: [
+            'css/styles-l'
         ],
         dsl: 'less'
     }
