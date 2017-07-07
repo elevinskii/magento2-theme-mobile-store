@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove from after.body.start -->
+        <referenceBlock name="require.js" remove="true" />
+        <referenceBlock name="requirejs-config" remove="true" />
+        <referenceBlock name="translate-config" remove="true" />
+        <referenceBlock name="translate" remove="true" />
+        <referenceBlock name="js_cookies" remove="true" />
+        <referenceBlock name="global_notices" remove="true" />
+
+        <!-- Remove from page.wrapper/header.container -->
+        <referenceBlock name="header.panel.wrapper" remove="true" />
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">293</argument>
+                <argument name="logo_img_height" xsi:type="number">52</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!-- Remove from page.wrapper/header.container/header.wrapper -->
+        <referenceBlock name="minicart" remove="true" />
+        <referenceBlock name="top.search" remove="true" />
+
+        <!-- Remove from page.wrapper/page.top -->
+        <referenceBlock name="navigation.sections" remove="true" />
+        <referenceContainer name="top.container" remove="true" />
+        <referenceBlock name="breadcrumbs" remove="true" />
+
+        <!-- Remove from page.wrapper/main.content -->
+        <referenceBlock name="skip_to_content.target" remove="true" />
+
+        <!-- Remove from page.wrapper/main.content/columns.top -->
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceContainer name="page.messages" remove="true" />
+
+        <!-- Remove from page.wrapper/main.content/columns/main -->
+        <referenceContainer name="content.top" remove="true" />
+        <referenceContainer name="content" remove="true" />
+        <referenceContainer name="content.aside" remove="true" />
+        <referenceContainer name="content.bottom" remove="true" />
+
+        <!-- Remove from page.wrapper/page.bottom.container -->
+        <referenceContainer name="page.bottom" remove="true" />
+
+        <!-- Remove from page.wrapper/footer-container -->
+        <referenceContainer name="footer" remove="true" />
+
+        <!-- Remove from page.wrapper/before.body.end -->
+        <referenceBlock name="absolute_footer" remove="true" />
+    </body>
+</page>
