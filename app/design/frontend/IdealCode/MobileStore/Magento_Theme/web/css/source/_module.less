@@ -1,0 +1,21 @@
+body {
+    .lib-css(background, @page__background-color);
+}
+.page-wrapper {
+    .lib-url('images/bg.gif');
+    background: url("@{url}") repeat-x;
+}
+header {
+    padding: 44px 0 30px 0;
+}
+.header {
+    .lib-clearer();
+}
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+header .logo {
+    float: left;
+    margin-top: 23px;
+}
