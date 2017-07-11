@@ -5,7 +5,6 @@
         <remove src="mage/calendar.css" />
         <remove src="css/print.css" />
         <remove src="css/styles-m.css" />
-        <remove src="requirejs/require.js" />
 
         <!-- styles-l.css for all layouts -->
         <css src="css/styles-l.css" />

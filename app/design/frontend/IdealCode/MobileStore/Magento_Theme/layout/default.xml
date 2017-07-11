@@ -2,15 +2,19 @@
 <page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <!-- Remove from after.body.start -->
-        <referenceBlock name="require.js" remove="true" />
-        <referenceBlock name="requirejs-config" remove="true" />
         <referenceBlock name="translate-config" remove="true" />
         <referenceBlock name="translate" remove="true" />
         <referenceBlock name="js_cookies" remove="true" />
         <referenceBlock name="global_notices" remove="true" />
 
-        <!-- Remove from page.wrapper/header.container -->
-        <referenceBlock name="header.panel.wrapper" remove="true" />
+        <!-- Work with page.wrapper/header.container -->
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+
+        <referenceContainer name="header-wrapper">
+            <container name="header.container.right" htmlTag="div" htmlClass="header-right" />
+        </referenceContainer>
+
+        <move element="header" destination="header.container.right" />
 
         <referenceBlock name="logo">
             <arguments>
