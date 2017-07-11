@@ -1,0 +1,33 @@
+.block-cart-header {
+    float: right;
+    background: #767676;
+    padding: 16px 10px 13px 10px;
+    min-width: 170px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+
+    .lib-icon-font(
+        @_icon-font-content: @icon-cart,
+        @_icon-font-size: 37px,
+        @_icon-font-line-height: 20px,
+        @_icon-font-color: @color-white,
+        @_icon-font-margin: 0 0 -2px
+    );
+    &:before {
+        overflow: visible;
+    }
+
+    h3 {
+        font-size: 15px;
+        line-height: normal;
+        font-weight: 500;
+        color: #fee100;
+        margin-bottom: 1px;
+    }
+
+    .summary {
+        .lib-css(color, @color-white);
+        font-size: 14px;
+    }
+}

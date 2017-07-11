@@ -21,7 +21,6 @@
         </referenceBlock>
 
         <!-- Remove from page.wrapper/header.container/header.wrapper -->
-        <referenceBlock name="minicart" remove="true" />
         <referenceBlock name="top.search" remove="true" />
 
         <!-- Remove from page.wrapper/page.top -->
