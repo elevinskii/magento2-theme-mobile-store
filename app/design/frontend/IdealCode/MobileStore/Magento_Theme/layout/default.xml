@@ -14,7 +14,14 @@
             <container name="header.container.right" htmlTag="div" htmlClass="header-right" />
         </referenceContainer>
 
-        <move element="header" destination="header.container.right" />
+        <move element="header" destination="header.container.right" before="-" />
+        <move element="top.links" destination="header.container.right" />
+
+        <referenceBlock name="top.links">
+            <arguments>
+                <argument name="css_class" xsi:type="string">links</argument>
+            </arguments>
+        </referenceBlock>
 
         <referenceBlock name="logo">
             <arguments>
