@@ -31,9 +31,6 @@
             </arguments>
         </referenceBlock>
 
-        <!-- Remove from page.wrapper/header.container/header.wrapper -->
-        <referenceBlock name="top.search" remove="true" />
-
         <!-- Remove from page.wrapper/page.top -->
         <referenceBlock name="navigation.sections" remove="true" />
         <referenceContainer name="top.container" remove="true" />

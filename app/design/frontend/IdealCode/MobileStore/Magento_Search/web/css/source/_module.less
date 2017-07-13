@@ -1,0 +1,38 @@
+.header {
+    .search {
+        float: right;
+        clear: both;
+
+        input {
+            float: left;
+            border: solid 1px #cfcfcf;
+            border-right: 0;
+            border-radius: 2px 0 0 2px;
+            padding: 6px;
+            width: 202px;
+            height: 32px;
+        }
+        button {
+            border: 0;
+            border-radius: 0 2px 2px 0;
+            height: 32px;
+            width: 47px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+
+            .lib-background-gradient(
+                @_background-gradient-color-start: #00bcf2,
+                @_background-gradient-color-end: #02aee0,
+                @_background-gradient-direction: vertical,
+                @_background-gradient: true,
+                @_background-gradient-color-position: false
+            );
+
+            &:hover {
+                background: #fee100;
+                color: #303030;
+            }
+        }
+    }
+}
