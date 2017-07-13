@@ -8,10 +8,12 @@
         <referenceBlock name="global_notices" remove="true" />
 
         <!-- Work with page.wrapper/header.container -->
+        <referenceContainer name="header.container" htmlClass="page-header content" />
         <referenceContainer name="header.panel.wrapper" remove="true" />
+        <referenceContainer name="header-wrapper" htmlClass="" />
 
         <referenceContainer name="header-wrapper">
-            <container name="header.container.right" htmlTag="div" htmlClass="header-right" />
+            <container name="header.container.right" htmlTag="div" htmlClass="right" />
         </referenceContainer>
 
         <move element="header" destination="header.container.right" before="-" />
@@ -37,6 +39,7 @@
         <referenceBlock name="breadcrumbs" remove="true" />
 
         <!-- Remove from page.wrapper/main.content -->
+        <referenceContainer name="main.content" htmlId="" htmlClass="page-main content" />
         <referenceBlock name="skip_to_content.target" remove="true" />
 
         <!-- Remove from page.wrapper/main.content/columns.top -->
@@ -45,7 +48,6 @@
 
         <!-- Remove from page.wrapper/main.content/columns/main -->
         <referenceContainer name="content.top" remove="true" />
-        <referenceContainer name="content" remove="true" />
         <referenceContainer name="content.aside" remove="true" />
         <referenceContainer name="content.bottom" remove="true" />
 
