@@ -13,11 +13,13 @@
         <referenceContainer name="header-wrapper" htmlClass="" />
 
         <referenceContainer name="header-wrapper">
-            <container name="header.container.right" htmlTag="div" htmlClass="right" />
+            <container name="header.right" htmlTag="div" htmlClass="right">
+                <container name="header.buttons" htmlTag="div" htmlClass="buttons" />
+            </container>
         </referenceContainer>
 
-        <move element="header" destination="header.container.right" before="-" />
-        <move element="top.links" destination="header.container.right" />
+        <move element="header" destination="header.right" before="top.links" />
+        <move element="top.links" destination="header.right" />
 
         <referenceBlock name="top.links">
             <arguments>
