@@ -21,6 +21,10 @@ header {
     .right {
         float: right;
     }
+    .buttons {
+        float: right;
+        margin: -7px 0 2px 0;
+    }
     .welcome-msg {
         float: right;
         clear: both;
@@ -29,14 +33,40 @@ header {
         margin-bottom: 3px;
         min-height: 20px;
     }
+
+    .switcher {
+        .lib-dropdown();
+
+        & > a {
+            color: #777;
+        }
+        .action.toggle:after,
+        .action.toggle.active:after {
+            overflow: visible;
+        }
+
+        li {
+            white-space: nowrap;
+
+            a {
+                display: block;
+                padding: 5px 10px;
+                font-size: 12px;
+                line-height: 17px;
+                text-decoration: none;
+            }
+        }
+    }
+
     .links {
         float: right;
         clear: both;
         margin-bottom: 9px;
-    }
+
         li {
             float: left;
             font-size: 14px;
             padding-left: 12px;
         }
+    }
 }
