@@ -1,0 +1,31 @@
+<?php
+/**
+ * Currency switcher
+ *
+ * @var $block \Magento\Directory\Block\Currency
+ */
+?>
+<?php if ($block->getCurrencyCount() > 1): ?>
+    <div class="switcher switcher-currency">
+        <a href="#" class="action toggle"><?= $block->getCurrentCurrencyCode() ?></a>
+        <ul class="dropdown">
+            <?php foreach ($block->getCurrencies() as $_code => $_name): ?>
+                <li><a href="#" data-post='<?= $block->getSwitchCurrencyPostData($_code) ?>'><?= $_name ?> - <?= $_code ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        ".switcher-currency ul" : {
+            "dropdownDialog" : {
+                "appendTo": ".switcher-currency",
+                "triggerTarget": ".switcher-currency .toggle",
+                "closeOnMouseLeave": false,
+                "parentClass": "active",
+                "triggerClass": "active",
+                "buttons": []
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

@@ -1,0 +1,33 @@
+<?php
+/**
+ * Language switcher template
+ *
+ * @var $block \Magento\Store\Block\Switcher
+ */
+
+$stores = $block->getStores();
+?>
+<?php if (count($stores) > 1): ?>
+    <div class="switcher switcher-language">
+        <a href="#" class="action toggle"><?= $block->getStoreCode() ?></a>
+        <ul class="dropdown">
+            <?php foreach ($stores as $_lang): ?>
+                <li><a href="#" data-post='<?= $block->getTargetStorePostData($_lang) ?>'><?= $_lang->getName() ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        ".switcher-language ul" : {
+            "dropdownDialog" : {
+                "appendTo": ".switcher-language",
+                "triggerTarget": ".switcher-language .toggle",
+                "closeOnMouseLeave": false,
+                "parentClass": "active",
+                "triggerClass": "active",
+                "buttons": []
+            }
+        }
+    }
+    </script>
+<?php endif; ?>
