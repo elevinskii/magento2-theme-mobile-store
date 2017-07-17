@@ -1,18 +1,18 @@
 <?php
-
-// @codingStandardsIgnoreFile
-?>
-<?php
-/** @var $block \Magento\Framework\View\Element\Template */
-/** @var $helper \Magento\Search\Helper\Data */
+/**
+ * Search form in header
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $helper \Magento\Search\Helper\Data
+ */
 $helper = $this->helper('Magento\Search\Helper\Data');
 ?>
-<form class="search" action="<?php /* @escapeNotVerified */ echo $helper->getResultUrl() ?>">
+<form class="search" action="<?= $helper->getResultUrl() ?>">
     <input
             type="text"
-            name="<?php /* @escapeNotVerified */ echo $helper->getQueryParamName() ?>"
-            value="<?php /* @escapeNotVerified */ echo $helper->getEscapedQueryText() ?>"
-            maxlength="<?php /* @escapeNotVerified */ echo $helper->getMaxQueryLength();?>"
+            name="<?= $helper->getQueryParamName() ?>"
+            value="<?= $helper->getEscapedQueryText() ?>"
+            maxlength="<?= $helper->getMaxQueryLength() ?>"
     />
-    <button><?php echo $block->escapeHtml(__('Search')) ?></button>
+    <button><?= $block->escapeHtml(__('Search')) ?></button>
 </form>

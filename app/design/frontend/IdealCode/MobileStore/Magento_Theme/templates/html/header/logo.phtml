@@ -1,16 +1,14 @@
 <?php
-
-// @codingStandardsIgnoreFile
-
 /**
+ * Logo block in header
+ *
  * @var \Magento\Theme\Block\Html\Header\Logo $block
  */
 ?>
 <?php $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt();?>
-<a href="<?php echo $block->getUrl(''); ?>" title="<?php /* @escapeNotVerified */ echo $storeName ?>" class="logo">
-    <img src="<?php /* @escapeNotVerified */ echo $block->getLogoSrc() ?>"
-         alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt() ?>"
-         <?php echo $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
-         <?php echo $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+<a href="<?= $block->getUrl('') ?>" title="<?= $storeName ?>" class="logo">
+    <img src="<?= $block->getLogoSrc() ?>" alt="<?= $block->getLogoAlt() ?>"
+         <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+         <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
     />
 </a>
