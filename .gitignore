@@ -18,5 +18,3 @@
 /app/*
 !/app/code/
 !/app/design/
-/app/design/*
-!/app/design/frontend/

@@ -10,7 +10,11 @@ body {
     margin: 0 auto;
 }
 header {
-    padding: 44px 0 30px 0;
+    padding-top: 44px;
+
+    &.content {
+        margin-bottom: 45px;
+    }
 
     .lib-clearer();
 
@@ -71,5 +75,12 @@ header {
             font-size: 14px;
             padding-left: 12px;
         }
+    }
+}
+
+.page-top {
+    &.content {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 }

@@ -35,8 +35,12 @@
             </arguments>
         </referenceBlock>
 
-        <!-- Remove from page.wrapper/page.top -->
-        <referenceBlock name="navigation.sections" remove="true" />
+        <!-- Work with page.wrapper/page.top -->
+        <referenceContainer name="page.top" htmlTag="div" htmlClass="page-top content" />
+        <referenceBlock name="navigation.sections" template="Magento_Theme::html/container.phtml" />
+
+        <referenceBlock name="store.links" remove="true" />
+        <referenceBlock name="store.settings" remove="true" />
         <referenceContainer name="top.container" remove="true" />
         <referenceBlock name="breadcrumbs" remove="true" />
 
