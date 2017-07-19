@@ -3,11 +3,12 @@
  * Currency switcher
  *
  * @var $block \Magento\Directory\Block\Currency
+ * @see \IdealCode\MobileStore\Block\Currency
  */
 ?>
 <?php if ($block->getCurrencyCount() > 1): ?>
     <div class="switcher switcher-currency">
-        <a href="#" class="action toggle"><?= $block->getCurrentCurrencyCode() ?></a>
+        <a href="#" class="action toggle"><?= $block->getCurrentCurrencySymbol() ?></a>
         <ul class="dropdown">
             <?php foreach ($block->getCurrencies() as $_code => $_name): ?>
                 <li><a href="#" data-post='<?= $block->getSwitchCurrencyPostData($_code) ?>'><?= $_name ?> - <?= $_code ?></a></li>
