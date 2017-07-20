@@ -42,7 +42,6 @@
         <referenceBlock name="store.links" remove="true" />
         <referenceBlock name="store.settings" remove="true" />
         <referenceContainer name="top.container" remove="true" />
-        <referenceBlock name="breadcrumbs" remove="true" />
 
         <!-- Remove from page.wrapper/main.content -->
         <referenceContainer name="main.content" htmlId="" htmlClass="page-main content" />
