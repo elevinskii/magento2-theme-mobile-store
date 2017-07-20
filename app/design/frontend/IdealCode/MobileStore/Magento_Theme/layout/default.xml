@@ -57,7 +57,9 @@
         <referenceContainer name="content.bottom" remove="true" />
 
         <!-- Remove from page.wrapper/page.bottom.container -->
-        <referenceContainer name="page.bottom" remove="true" />
+        <referenceContainer name="page.bottom.container">
+            <block class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/shipping.phtml" />
+        </referenceContainer>
 
         <!-- Remove from page.wrapper/footer-container -->
         <referenceContainer name="footer" remove="true" />
