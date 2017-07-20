@@ -22,7 +22,7 @@ header {
             .lib-css(border-radius, 0 2px 2px 0, 1);
 
             .lib-background-gradient(
-                @_background-gradient-color-start: #00bcf2,
+                @_background-gradient-color-start: @color-blue-base,
                 @_background-gradient-color-end: #02aee0,
                 @_background-gradient-direction: vertical,
                 @_background-gradient: true,
@@ -30,8 +30,8 @@ header {
             );
 
             &:hover {
-                background: #fee100;
                 color: #303030;
+                .lib-css(background, @color-yellow-base);
             }
         }
     }
