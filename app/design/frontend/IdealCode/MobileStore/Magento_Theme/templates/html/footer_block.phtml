@@ -1,0 +1,15 @@
+<?php
+/**
+ * Footer column block
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+
+$childHtml = $block->getChildHtml();
+?>
+<?php if($childHtml): ?>
+<div class="column">
+    <h4><?= $block->getTitle() ?></h4>
+    <?= $childHtml ?>
+</div>
+<?php endif; ?>

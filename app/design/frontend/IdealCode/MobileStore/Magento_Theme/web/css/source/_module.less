@@ -107,3 +107,36 @@ header {
         }
     }
 }
+
+footer {
+    background: #363636;
+    padding: 28px 0 25px;
+
+    .lib-clearer();
+
+    .column {
+        float: left;
+        width: 25%;
+
+        h4 {
+            font-size: 15px;
+            margin-bottom: 15px;
+            .lib-css(color, @color-blue-base);
+            .lib-css(font-weight, @font-weight__heavier);
+        }
+
+        li {
+            display: block;
+            padding-bottom: 3px;
+
+            a {
+                .lib-link(
+                    @_link-color: @color-white,
+                    @_link-text-decoration: false,
+                    @_link-color-hover: @color-yellow-base,
+                    @_link-text-decoration-hover: none
+                );
+            }
+        }
+    }
+}
