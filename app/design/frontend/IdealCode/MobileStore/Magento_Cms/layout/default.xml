@@ -4,7 +4,34 @@
         <referenceBlock name="privacy-policy-link" class="Magento\Framework\View\Element\Html\Link">
             <arguments>
                 <argument name="label" xsi:type="string" translate="true">Privacy Policy</argument>
+                <argument name="path" xsi:type="string">privacy-policy</argument>
             </arguments>
+        </referenceBlock>
+        <referenceBlock name="footer.links.buy">
+            <block name="footer-about-us-link" class="Magento\Framework\View\Element\Html\Link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">About Us</argument>
+                    <argument name="path" xsi:type="string">about-us</argument>
+                </arguments>
+            </block>
+            <block name="footer-shipping-link" class="Magento\Framework\View\Element\Html\Link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Shipping</argument>
+                    <argument name="path" xsi:type="string">shipping</argument>
+                </arguments>
+            </block>
+            <block name="footer-affiliates-link" class="Magento\Framework\View\Element\Html\Link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Affiliates</argument>
+                    <argument name="path" xsi:type="string">affiliates</argument>
+                </arguments>
+            </block>
+            <block name="footer-group-sales-link" class="Magento\Framework\View\Element\Html\Link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Group Sales</argument>
+                    <argument name="path" xsi:type="string">group-sales</argument>
+                </arguments>
+            </block>
         </referenceBlock>
     </body>
 </page>
