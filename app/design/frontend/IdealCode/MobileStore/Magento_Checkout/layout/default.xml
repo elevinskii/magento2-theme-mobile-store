@@ -8,5 +8,18 @@
                 </arguments>
             </block>
         </referenceBlock>
+        <referenceBlock name="footer.column.account">
+            <block name="footer-cart-link" class="Magento\Framework\View\Element\Html\Link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">My Cart</argument>
+                    <argument name="path" xsi:type="string">checkout/cart</argument>
+                </arguments>
+            </block>
+            <block name="footer-checkout-link" class="Magento\Checkout\Block\Link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Checkout</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
     </body>
 </page>
