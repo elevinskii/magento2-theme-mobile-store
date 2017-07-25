@@ -13,26 +13,8 @@ header {
             .lib-css(border-radius, 2px 0 0 2px, 1);
         }
         button {
-            border: 0;
-            height: 32px;
-            width: 47px;
-            color: #fff;
-            cursor: pointer;
-            font-size: 15px;
-            .lib-css(border-radius, 0 2px 2px 0, 1);
-
-            .lib-background-gradient(
-                @_background-gradient-color-start: @color-blue-base,
-                @_background-gradient-color-end: #02aee0,
-                @_background-gradient-direction: vertical,
-                @_background-gradient: true,
-                @_background-gradient-color-position: false
-            );
-
-            &:hover {
-                color: #303030;
-                .lib-css(background, @color-yellow-base);
-            }
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
     }
 }

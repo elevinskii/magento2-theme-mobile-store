@@ -1,0 +1,13 @@
+button {
+    .lib-button();
+
+    .lib-background-gradient(
+        @_background-gradient-color-start: @color-blue-base,
+        @_background-gradient-color-end: #02aee0,
+        @_background-gradient-direction: vertical,
+        @_background-gradient: true,
+        @_background-gradient-color-position: false
+    );
+
+    .lib-css(border-radius, @button__border-radius, 1);
+}
