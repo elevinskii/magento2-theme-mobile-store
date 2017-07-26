@@ -105,7 +105,6 @@
         <referenceContainer name="store_switcher" remove="true" />
         <referenceContainer name="copyright" remove="true" />
         <referenceContainer name="report.bugs" remove="true" />
-        <referenceContainer name="form.subscribe" remove="true" />
 
         <!-- Remove from page.wrapper/before.body.end -->
         <referenceBlock name="absolute_footer" remove="true" />

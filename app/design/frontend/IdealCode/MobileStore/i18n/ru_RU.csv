@@ -1,20 +1,31 @@
+; Header
 "My Cart","Корзина"
 "My Account","Мой профиль"
 "My Wish List","Список желаний"
 "Checkout","Оформление заказа"
 "Sign In","Войти"
 "Search","Найти"
+
+; Footer, shipping block
 "Free shipping on orders over $499.","Бесплатная доставка для заказов от $499."
 "This offer is valid on all our store items.","Предложение действует на все товары в нашем каталоге."
+
+; Footer, first column
 "Information","Информация"
-"Why buy from us","Почему надо покупать у нас"
-"Newsletter","Рассылка"
 "Privacy Policy","Политика конфиденциальности"
 "Search Terms","Поиск по тегам"
 "Advanced Search","Расширенный поиск"
 "Orders and Returns","Заказы и возвраты"
 "Contact Us","Обратная связь"
+
+; Footer, second column
+"Why buy from us","Почему надо покупать у нас"
 "About Us","О нас"
 "Shipping","Доставка"
 "Affiliates","Партнёры"
 "Group Sales","Групповые покупки"
+
+; Newsletter
+"Newsletter","Рассылка"
+"Sign Up for Our Newsletter:","Подписывайтесь на наши новости:"
+"Subscribe","Подписаться"
