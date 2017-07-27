@@ -109,10 +109,14 @@ header {
 }
 
 footer {
-    background: #363636;
-    padding: 28px 0 25px;
+    .columns {
+        background: #363636;
+        padding: 28px 0 25px;
 
-    .lib-clearer();
+        .content {
+            .lib-clearer();
+        }
+    }
 
     .column {
         float: left;
@@ -139,5 +143,12 @@ footer {
                 );
             }
         }
+    }
+
+    .copyright {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        font-size: 11px;
+        color: #777;
     }
 }

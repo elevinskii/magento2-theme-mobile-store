@@ -1,0 +1,13 @@
+<?php
+/**
+ * Copyright footer block
+ *
+ * @var $block \Magento\Theme\Block\Html\Footer
+ */
+$copyright = $block->getCopyright();
+?>
+<?php if($copyright): ?>
+    <div class="copyright content">
+        <?= $block->getCopyright() ?>
+    </div>
+<?php endif; ?>

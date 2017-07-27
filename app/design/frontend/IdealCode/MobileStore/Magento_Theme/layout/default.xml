@@ -62,37 +62,41 @@
         </referenceContainer>
 
         <!-- Work with page.wrapper/footer-container -->
-        <referenceContainer name="footer">
-            <block name="footer.column.info" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
-                <arguments>
-                    <argument name="title" xsi:type="string" translate="true">Information</argument>
-                </arguments>
-            </block>
-            <block name="footer.column.buy" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
-                <arguments>
-                    <argument name="title" xsi:type="string" translate="true">Why buy from us</argument>
-                </arguments>
-                <block name="footer.links.buy" class="Magento\Framework\View\Element\Html\Links">
-                    <arguments>
-                        <argument name="css_class" xsi:type="string">links</argument>
-                    </arguments>
-                </block>
-            </block>
-            <block name="footer.column.account" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
-                <arguments>
-                    <argument name="title" xsi:type="string" translate="true">My Account</argument>
-                </arguments>
-                <block name="footer.links.account" class="Magento\Framework\View\Element\Html\Links">
-                    <arguments>
-                        <argument name="css_class" xsi:type="string">links</argument>
-                    </arguments>
-                </block>
-            </block>
-            <block name="footer.column.newsletter" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
-                <arguments>
-                    <argument name="title" xsi:type="string" translate="true">Newsletter</argument>
-                </arguments>
-            </block>
+        <referenceContainer name="footer-container">
+            <container name="footer.columns" htmlTag="div" htmlClass="columns">
+                <container name="footer.columns.content" htmlTag="div" htmlClass="content">
+                    <block name="footer.column.info" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">Information</argument>
+                        </arguments>
+                    </block>
+                    <block name="footer.column.buy" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">Why buy from us</argument>
+                        </arguments>
+                        <block name="footer.links.buy" class="Magento\Framework\View\Element\Html\Links">
+                            <arguments>
+                                <argument name="css_class" xsi:type="string">links</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                    <block name="footer.column.account" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">My Account</argument>
+                        </arguments>
+                        <block name="footer.links.account" class="Magento\Framework\View\Element\Html\Links">
+                            <arguments>
+                                <argument name="css_class" xsi:type="string">links</argument>
+                            </arguments>
+                        </block>
+                    </block>
+                    <block name="footer.column.newsletter" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">Newsletter</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
         </referenceContainer>
 
         <referenceBlock name="footer_links">
@@ -102,11 +106,7 @@
         </referenceBlock>
 
         <move element="footer_links" destination="footer.column.info" />
-        <referenceContainer name="store_switcher" remove="true" />
-        <referenceContainer name="copyright" remove="true" />
-        <referenceContainer name="report.bugs" remove="true" />
-
-        <!-- Remove from page.wrapper/before.body.end -->
-        <referenceBlock name="absolute_footer" remove="true" />
+        <move element="copyright" destination="footer-container" />
+        <referenceContainer name="footer" remove="true" />
     </body>
 </page>
