@@ -18,3 +18,4 @@
 /app/*
 !/app/code/
 !/app/design/
+!/app/i18n/
