@@ -5,9 +5,32 @@
  * @var $block \Magento\Checkout\Block\Cart\Sidebar
  */
 ?>
-<div class="cart">
+<div class="cart" data-bind="scope: 'minicart_content'">
     <h3><?= __('My Cart') ?></h3>
     <div class="summary">
-        0 item(s) - $0.00
+        <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+        <?php if($block->getCurrentStoreLocale() == 'ru_RU'): ?>
+            <!-- ko text: getLabel(getCartParam('summary_count'), ['<?= __('item1') ?>', '<?= __('item2') ?>', '<?= __('item3') ?>']) --><!-- /ko -->
+        <?php else: ?>
+            <!-- ko if: getCartParam('summary_count') == 1 -->
+                <!-- ko i18n: 'item' --><!-- /ko -->
+            <!-- /ko -->
+            <!-- ko ifnot: getCartParam('summary_count') == 1 -->
+                <!-- ko i18n: 'items' --><!-- /ko -->
+            <!-- /ko -->
+        <?php endif; ?>
+        <span data-bind="html: ' — '+getCartParam('subtotal')"></span>
     </div>
+    <?php if($block->getIsNeedToDisplaySideBar()): ?>
+    <?php endif; ?>
 </div>
+<script>
+    window.checkout = <?= \Zend_Json::encode($block->getConfig()) ?>;
+</script>
+<script type="text/x-magento-init">
+{
+    "header .cart": {
+        "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+    }
+}
+</script>

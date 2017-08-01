@@ -52,6 +52,7 @@
         <!-- Remove from page.wrapper/main.content/columns/main -->
         <referenceContainer name="content.top" remove="true" />
         <referenceContainer name="content.aside" remove="true" />
+        <referenceBlock name="authentication-popup" remove="true" />
         <referenceContainer name="content.bottom" remove="true" />
 
         <!-- Work with page.wrapper/page.bottom.container -->
