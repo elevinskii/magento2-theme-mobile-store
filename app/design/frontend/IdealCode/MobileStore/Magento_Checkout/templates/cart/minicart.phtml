@@ -5,9 +5,9 @@
  * @var $block \Magento\Checkout\Block\Cart\Sidebar
  */
 ?>
-<div class="cart" data-bind="scope: 'minicart_content'">
+<div class="cart">
     <h3><?= __('My Cart') ?></h3>
-    <div class="summary">
+    <div class="summary action toggle" data-bind="scope: 'minicart_content'">
         <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
         <?php if($block->getCurrentStoreLocale() == 'ru_RU'): ?>
             <!-- ko text: getLabel(getCartParam('summary_count'), ['<?= __('item1') ?>', '<?= __('item2') ?>', '<?= __('item3') ?>']) --><!-- /ko -->
@@ -22,6 +22,9 @@
         <span data-bind="html: ' — '+getCartParam('subtotal')"></span>
     </div>
     <?php if($block->getIsNeedToDisplaySideBar()): ?>
+        <div class="sidebar" data-bind="scope: 'minicart_content'">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
     <?php endif; ?>
 </div>
 <script>
@@ -29,8 +32,18 @@
 </script>
 <script type="text/x-magento-init">
 {
-    "header .cart": {
+    "header .cart *": {
         "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+    },
+    "header .cart .sidebar": {
+        "dropdownDialog": {
+            "appendTo": "header .cart",
+            "triggerTarget": "header .cart .summary",
+            "closeOnMouseLeave": false,
+            "parentClass": "active",
+            "triggerClass": "active",
+            "buttons": []
+        }
     }
 }
 </script>

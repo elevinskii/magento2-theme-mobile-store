@@ -1,0 +1,13 @@
+<!-- ko if: getCartParam('summary_count') -->
+    <div class="cart-header">
+        <!-- ko foreach: getRegion('subtotalContainer') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </div>
+<!-- /ko -->
+
+<!-- ko ifnot: getCartParam('summary_count') -->
+    <div class="empty">
+        <!-- ko i18n: 'You have no items in your shopping cart.' --><!-- /ko -->
+    </div>
+<!-- /ko -->
