@@ -14,7 +14,7 @@ header .cart {
         @_dropdown-list-position-top: 102px,
         @_dropdown-list-background: #f9f9f9,
         @_dropdown-list-border: false,
-        @_dropdown-list-item-border: false,
+        @_dropdown-list-item-border: 1px solid #c7c7c7,
         @_dropdown-list-z-index: 5
     );
 
@@ -58,10 +58,42 @@ header .cart {
 
     .sidebar {
         text-align: left;
+        cursor: default;
 
         .empty {
             padding: 10px;
             .lib-css(color, @color-black);
+        }
+
+        li {
+            padding: 20px;
+
+            .lib-clearer();
+
+            .info {
+                overflow: hidden;
+            }
+            & > .image {
+                float: left;
+                border: 1px solid #ededed;
+                margin-right: 10px;
+            }
+            .name {
+                font-size: 14px;
+                text-decoration: none;
+            }
+            .details {
+                margin-top: 3px;
+                .lib-css(font-weight, @font-weight__bold);
+
+                .price-container {
+                    display: inline;
+                }
+            }
+
+            &:hover {
+                cursor: default;
+            }
         }
     }
 }

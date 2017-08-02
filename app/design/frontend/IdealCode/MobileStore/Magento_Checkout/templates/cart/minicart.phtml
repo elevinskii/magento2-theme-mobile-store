@@ -25,6 +25,20 @@
         <div class="sidebar" data-bind="scope: 'minicart_content'">
             <!-- ko template: getTemplate() --><!-- /ko -->
         </div>
+        <script type="text/x-magento-init">
+        {
+            "header .cart .sidebar": {
+                "dropdownDialog": {
+                    "appendTo": "header .cart",
+                    "triggerTarget": "header .cart .summary",
+                    "closeOnMouseLeave": false,
+                    "parentClass": "active",
+                    "triggerClass": "active",
+                    "buttons": []
+                }
+            }
+        }
+        </script>
     <?php endif; ?>
 </div>
 <script>
@@ -34,16 +48,6 @@
 {
     "header .cart *": {
         "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
-    },
-    "header .cart .sidebar": {
-        "dropdownDialog": {
-            "appendTo": "header .cart",
-            "triggerTarget": "header .cart .summary",
-            "closeOnMouseLeave": false,
-            "parentClass": "active",
-            "triggerClass": "active",
-            "buttons": []
-        }
     }
 }
 </script>
