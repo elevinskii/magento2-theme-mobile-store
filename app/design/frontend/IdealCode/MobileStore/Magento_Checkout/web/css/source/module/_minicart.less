@@ -44,6 +44,16 @@ header .cart {
         .lib-css(color, @color-white);
     }
 
+    .sidebar {
+        text-align: left;
+        cursor: default;
+
+        .empty {
+            padding: 10px;
+            .lib-css(color, @color-black);
+        }
+    }
+
     .cart-header {
         background: #323232;
         padding: 11px 20px;
@@ -56,19 +66,29 @@ header .cart {
         }
     }
 
-    .sidebar {
-        text-align: left;
-        cursor: default;
-
-        .empty {
-            padding: 10px;
-            .lib-css(color, @color-black);
-        }
+    .cart-content {
+        overflow: hidden;
 
         li {
             padding: 20px;
 
             .lib-clearer();
+
+            .controls {
+                font-size: 16px;
+                text-align: right;
+                margin-bottom: 5px;
+            }
+            .edit {
+                .lib-icon-font(
+                    @_icon-font-content: @icon-edit
+                );
+            }
+            .delete {
+                .lib-icon-font(
+                    @_icon-font-content: @icon-remove
+                );
+            }
 
             .info {
                 overflow: hidden;

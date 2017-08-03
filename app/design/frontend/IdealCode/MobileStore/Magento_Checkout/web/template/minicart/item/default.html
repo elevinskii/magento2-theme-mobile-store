@@ -1,4 +1,11 @@
-<li>
+<li data-role="product-item">
+    <div class="controls">
+        <!-- ko if: is_visible_in_site_visibility -->
+            <a data-bind="attr: {href: configure_url, title: $t('Edit item')}" class="edit"></a>
+        <!-- /ko -->
+        <a href="#" data-bind="attr: {'data-cart-item': item_id, title: $t('Remove item')}" class="action delete"></a>
+    </div>
+
     <!-- ko if: product_has_url -->
         <a data-bind="attr: {href: product_url, title: product_name}" class="image">
             <!-- ko foreach: $parent.getRegion('itemImage') -->

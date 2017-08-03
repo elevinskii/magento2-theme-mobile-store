@@ -6,11 +6,13 @@
         <!-- ko i18n: 'Recently added item(s)' --><!-- /ko -->
     </div>
 
-    <ul data-bind="foreach: { data: getCartParam('items'), as: 'item' }">
-        <!-- ko foreach: $parent.getRegion($parent.getItemRenderer(item.product_type)) -->
-            <!-- ko template: {name: getTemplate(), data: item} --><!-- /ko -->
-        <!-- /ko -->
-    </ul>
+    <div class="cart-content">
+        <ul id="mini-cart" data-bind="foreach: { data: getCartParam('items'), as: 'item' }">
+            <!-- ko foreach: $parent.getRegion($parent.getItemRenderer(item.product_type)) -->
+                <!-- ko template: {name: getTemplate(), data: item} --><!-- /ko -->
+            <!-- /ko -->
+        </ul>
+    </div>
 <!-- /ko -->
 
 <!-- ko ifnot: getCartParam('summary_count') -->
