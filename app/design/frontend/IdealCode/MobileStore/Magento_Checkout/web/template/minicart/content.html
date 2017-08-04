@@ -13,6 +13,15 @@
             <!-- /ko -->
         </ul>
     </div>
+
+    <div class="cart-footer">
+        <a id="top-cart-btn-checkout" class="button">
+            <!-- ko i18n: 'Checkout order' --><!-- /ko -->
+        </a>
+        <a class="button" data-bind="attr: {href: shoppingCartUrl}">
+            <!-- ko i18n: 'My Cart' --><!-- /ko -->
+        </a>
+    </div>
 <!-- /ko -->
 
 <!-- ko ifnot: getCartParam('summary_count') -->

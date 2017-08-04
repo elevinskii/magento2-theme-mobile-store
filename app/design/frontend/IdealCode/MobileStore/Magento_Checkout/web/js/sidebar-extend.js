@@ -13,7 +13,7 @@ define([
                 events = {};
 
             this._initContent();
-            this._off(self.element, 'click');
+            this.element.undelegate(this.options.button.remove, 'click');
 
             events['click ' + this.options.button.remove] =  function (event) {
                 self._removeItem($(event.currentTarget));
