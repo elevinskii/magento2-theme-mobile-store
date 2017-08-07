@@ -1,0 +1,30 @@
+<?php
+/**
+ * Category product list
+ *
+ * @var $block \Magento\Catalog\Block\Product\ListProduct
+ */
+$productCollection = $block->getLoadedProductCollection();
+?>
+<?php if($productCollection->count()): ?>
+    <ul class="product-list">
+        <?php foreach($productCollection as $product): ?>
+            <?php $url = $product->getProductUrl(); ?>
+            <?php $name = $product->getName(); ?>
+            <li>
+                <div class="wrap">
+                    <?php if($url): ?>
+                        <div class="name">
+                            <a href="<?= $url ?>" title="<?= $name ?>"><?= $name ?></a>
+                        </div>
+                    <?php else: ?>
+                        <div class="name"><?= $name ?></div>
+                    <?php endif; ?>
+                    <div class="description">
+                        <?= $product->getShortDescription() ?>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

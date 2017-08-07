@@ -1,0 +1,36 @@
+.product-list {
+    margin: 30px -15px;
+
+    .lib-clearer();
+
+    > li {
+        float: left;
+        width: 33.333%;
+        padding: 0 15px;
+
+        .wrap {
+            padding: 20px 29px 30px 29px;
+            border: solid 1px #cfcfcf;
+            .lib-css(border-radius, 6px, 1);
+        }
+
+        .name {
+            font-size: 15px;
+            margin-bottom: 14px;
+
+            a {
+                .lib-link(
+                    @_link-color: @color-blue-base,
+                    @_link-text-decoration: false,
+                    @_link-color-hover: #333,
+                    @_link-text-decoration-hover: none
+                );
+            }
+        }
+        .description {
+            margin-bottom: 10px;
+            height: 60px;
+            overflow: hidden;
+        }
+    }
+}
