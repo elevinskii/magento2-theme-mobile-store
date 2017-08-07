@@ -10,7 +10,17 @@ button,
         @_background-gradient-color-position: false
     );
 
+    box-shadow: 1px 1px 0 #0180a4;
     .lib-css(border-radius, @button__border-radius, 1);
+
+    &:hover {
+        box-shadow: 1px 1px 0 #bba600;
+    }
+}
+
+button.large,
+.button.large {
+    .lib-button-l();
 }
 
 a.button {
