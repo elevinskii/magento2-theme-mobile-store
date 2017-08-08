@@ -4,6 +4,8 @@
  *
  * @var $block \Magento\Catalog\Block\Product\ListProduct
  */
+use Magento\Framework\App\Action\Action;
+
 $productCollection = $block->getLoadedProductCollection();
 ?>
 <?php if($productCollection->count()): ?>
@@ -23,8 +25,28 @@ $productCollection = $block->getLoadedProductCollection();
                     <div class="description">
                         <?= $product->getShortDescription() ?>
                     </div>
+                    <?php if($product->isSaleable()): ?>
+                        <?php $postParams = $block->getAddToCartPostParams($product); ?>
+                        <form action="<?= $postParams['action'] ?>" method="post" class="tocart">
+                            <input type="hidden" name="product" value="<?= $postParams['data']['product'] ?>" />
+                            <input type="hidden" name="<?= Action::PARAM_NAME_URL_ENCODED ?>" value="<?= $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>" />
+                            <?= $block->getBlockHtml('formkey') ?>
+                            <button class="action tocart large" title="<?= __('Add to Cart') ?>">
+                                <span><?= __('Add to Cart') ?></span>
+                            </button>
+                        </form>
+                    <?php endif; ?>
                 </div>
             </li>
         <?php endforeach; ?>
     </ul>
+    <script type="text/x-magento-init">
+    {
+        ".product-list form.tocart": {
+            "catalogAddToCart": {
+                "addToCartButtonTextAdded": "<?= __('Adding...') ?>"
+            }
+        }
+    }
+    </script>
 <?php endif; ?>
