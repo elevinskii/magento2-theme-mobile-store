@@ -1,12 +1,6 @@
 header .cart {
     float: right;
-    background: #767676;
-    padding: 16px 10px 13px 10px;
     margin-left: 30px;
-    min-width: 170px;
-    text-align: center;
-    cursor: pointer;
-    .lib-css(border-radius, 5px, 1);
 
     .lib-dropdown(
         @_options-selector: ~'.sidebar',
@@ -18,111 +12,117 @@ header .cart {
         @_dropdown-list-z-index: 5
     );
 
-    .lib-icon-font(
-        @_icon-font-content: @icon-cart,
-        @_icon-font-size: 37px,
-        @_icon-font-line-height: 20px,
-        @_icon-font-color: @color-white,
-        @_icon-font-margin: 0 0 -2px,
-        @_icon-font-vertical-align: false
-    );
-    &:before {
-        overflow: visible;
+    &.active .action.toggle:after {
+        .lib-css(content, @dropdown-toggle-icon__active__content);
     }
 
-    h3 {
-        font-size: 15px;
-        line-height: normal;
-        font-weight: 500;
-        margin-bottom: 1px;
-        .lib-css(color, @color-yellow-base);
-    }
-
-    .summary {
+    .block {
+        display: inline-block;
+        background: #767676;
+        padding: 16px 10px 13px 10px;
+        min-width: 170px;
+        min-height: 97px;
+        text-align: center;
         font-size: 14px;
-        min-height: 20px;
         .lib-css(color, @color-white);
+        .lib-css(border-radius, 5px, 1);
+
+        .lib-icon-font(
+            @_icon-font-content: @icon-cart,
+            @_icon-font-size: 37px,
+            @_icon-font-line-height: 20px,
+            @_icon-font-margin: 0 0 -2px,
+            @_icon-font-vertical-align: false
+        );
+        &:before {
+            overflow: visible;
+        }
+
+        h3 {
+            font-size: 15px;
+            line-height: normal;
+            font-weight: 500;
+            margin-bottom: 1px;
+            .lib-css(color, @color-yellow-base);
+        }
     }
 
     .sidebar {
-        text-align: left;
-        cursor: default;
-
         .empty {
             padding: 10px;
             .lib-css(color, @color-black);
         }
-    }
 
-    .cart-header {
-        background: #323232;
-        padding: 11px 20px;
+        .cart-header {
+            background: #323232;
+            padding: 11px 20px;
 
-        .subtotal {
-            .lib-css(font-weight, @font-weight__bold);
-        }
-        .amount {
-            float: right;
-        }
-    }
-
-    .cart-content {
-        overflow: hidden;
-
-        li {
-            padding: 20px;
-
-            .lib-clearer();
-
-            .controls {
-                font-size: 16px;
-                text-align: right;
-                margin-bottom: 5px;
-            }
-            .edit {
-                .lib-icon-font(
-                    @_icon-font-content: @icon-edit
-                );
-            }
-            .delete {
-                .lib-icon-font(
-                    @_icon-font-content: @icon-remove
-                );
-            }
-
-            .info {
-                overflow: hidden;
-            }
-            & > .image {
-                float: left;
-                border: 1px solid #ededed;
-                margin-right: 10px;
-            }
-            .name {
-                font-size: 14px;
-                text-decoration: none;
-            }
-            .details {
-                margin-top: 3px;
+            .subtotal {
                 .lib-css(font-weight, @font-weight__bold);
+            }
+            .amount {
+                float: right;
+            }
+        }
 
-                .price-container {
-                    display: inline;
+        .cart-content {
+            overflow: hidden;
+
+            li {
+                padding: 20px;
+
+                .lib-clearer();
+
+                .controls {
+                    font-size: 16px;
+                    text-align: right;
+                    margin-bottom: 5px;
+                }
+                .edit {
+                    .lib-icon-font(
+                        @_icon-font-content: @icon-edit
+                    );
+                }
+                .delete {
+                    .lib-icon-font(
+                        @_icon-font-content: @icon-remove
+                    );
+                }
+
+                .info {
+                    overflow: hidden;
+                }
+                & > .image {
+                    float: left;
+                    border: 1px solid #ededed;
+                    margin-right: 10px;
+                }
+                .name {
+                    font-size: 14px;
+                    text-decoration: none;
+                }
+                .details {
+                    margin-top: 3px;
+                    .lib-css(font-weight, @font-weight__bold);
+
+                    .price-container {
+                        display: inline;
+                    }
+                }
+
+                &:hover {
+                    cursor: default;
                 }
             }
-
-            &:hover {
-                cursor: default;
-            }
         }
-    }
 
-    .cart-footer {
-        background: #323232;
-        padding: 20px;
+        .cart-footer {
+            background: #323232;
+            padding: 20px;
 
-        .button {
-            margin-right: 7px;
+            .button {
+                margin-right: 7px;
+            }
         }
     }
 }

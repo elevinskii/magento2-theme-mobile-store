@@ -6,28 +6,34 @@
  */
 ?>
 <div class="cart" data-block="minicart">
-    <h3><?= __('My Cart') ?></h3>
-    <div class="summary action toggle" data-bind="scope: 'minicart_content'">
-        <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
-        <?php if($block->getCurrentStoreLocale() == 'ru_RU'): ?>
-            <!-- ko text: getLabel(['<?= __('item1') ?>', '<?= __('item2') ?>', '<?= __('item3') ?>'], 'ru') --><!-- /ko -->
-        <?php else: ?>
-            <!-- ko text: getLabel(['<?= __('item') ?>', '<?= __('items') ?>']) --><!-- /ko -->
-        <?php endif; ?>
-        <!-- ko if: getCartParam('subtotal') -->
-            <span data-bind="html: ' — '+getCartParam('subtotal')"></span>
-        <!-- /ko -->
-    </div>
+    <a href="#" data-bind="scope: 'minicart_content'">
+        <span data-bind="blockLoader: isLoading">
+            <span class="block">
+                <h3><?= __('My Cart') ?></h3>
+                <span class="action toggle">
+                    <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                    <?php if($block->getCurrentStoreLocale() == 'ru_RU'): ?>
+                        <!-- ko text: getLabel(['<?= __('item1') ?>', '<?= __('item2') ?>', '<?= __('item3') ?>'], 'ru') --><!-- /ko -->
+                    <?php else: ?>
+                        <!-- ko text: getLabel(['<?= __('item') ?>', '<?= __('items') ?>']) --><!-- /ko -->
+                    <?php endif; ?>
+                    <!-- ko if: getCartParam('subtotal') -->
+                        <span data-bind="html: ' — '+getCartParam('subtotal')"></span>
+                    <!-- /ko -->
+                </span>
+            </span>
+        </span>
+    </a>
     <?php if($block->getIsNeedToDisplaySideBar()): ?>
         <div class="sidebar" data-bind="scope: 'minicart_content'">
             <!-- ko template: getTemplate() --><!-- /ko -->
         </div>
         <script type="text/x-magento-init">
         {
-            "header .cart .sidebar": {
+            "header .sidebar": {
                 "dropdownDialog": {
                     "appendTo": "header .cart",
-                    "triggerTarget": "header .cart .summary",
+                    "triggerTarget": "header .cart > a",
                     "closeOnMouseLeave": false,
                     "parentClass": "active",
                     "triggerClass": "active",
@@ -43,8 +49,9 @@
 </script>
 <script type="text/x-magento-init">
 {
-    "header .cart *": {
-        "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+    "header .cart": {
+        "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>,
+        "Magento_Ui/js/block-loader": ""
     }
 }
 </script>
