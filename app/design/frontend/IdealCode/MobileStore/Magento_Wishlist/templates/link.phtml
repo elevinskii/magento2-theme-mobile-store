@@ -1,0 +1,28 @@
+<?php
+/**
+ * Link to wishlist with counter
+ *
+ * @var $block \Magento\Wishlist\Block\Link
+ */
+?>
+<li class="link wishlist" data-bind="scope: 'wishlist'">
+    <a <?= $block->getLinkAttributes() ?>>
+        <?= $block->getLabel() ?>
+        <!-- ko if: wishlist().count -->
+            <span data-bind="text: '(' + wishlist().count + ')'"></span>
+        <!-- /ko -->
+    </a>
+</li>
+<script type="text/x-magento-init">
+{
+    "header .wishlist": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "wishlist": {
+                    "component": "Magento_Wishlist/js/view/wishlist"
+                }
+            }
+        }
+    }
+}
+</script>
