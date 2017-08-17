@@ -27,7 +27,7 @@ $productCollection = $block->getLoadedProductCollection();
                     </div>
                     <?php if($product->isSaleable()): ?>
                         <?php $postParams = $block->getAddToCartPostParams($product); ?>
-                        <form action="<?= $postParams['action'] ?>" method="post" class="tocart">
+                        <form action="<?= $postParams['action'] ?>" method="post" class="to-cart">
                             <input type="hidden" name="product" value="<?= $postParams['data']['product'] ?>" />
                             <input type="hidden" name="<?= Action::PARAM_NAME_URL_ENCODED ?>" value="<?= $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>" />
                             <?= $block->getBlockHtml('formkey') ?>
@@ -36,13 +36,18 @@ $productCollection = $block->getLoadedProductCollection();
                             </button>
                         </form>
                     <?php endif; ?>
+                    <?php if($addToBlock = $block->getChildBlock('addto')): ?>
+                        <div class="addto">
+                            <?= $addToBlock->setProduct($product)->getChildHtml() ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </li>
         <?php endforeach; ?>
     </ul>
     <script type="text/x-magento-init">
     {
-        ".product-list form.tocart": {
+        ".product-list .to-cart": {
             "catalogAddToCart": {
                 "addToCartButtonTextAdded": "<?= __('Adding...') ?>"
             }

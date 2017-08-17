@@ -1,0 +1,29 @@
+<?php
+/**
+ * Add to wishlist link in product list
+ *
+ * @var $block \Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist
+ */
+
+/** @var \Magento\Catalog\Model\Product $product */
+$product = $block->getProduct();
+/** @var \Magento\Wishlist\Helper\Data $helper */
+$helper = $block->getWishlistHelper();
+?>
+<?php if ($helper->isAllow()): ?>
+    <div data-bind="scope: 'wishlist'" class="to-wishlist">
+        <!-- ko ifnot: productInWishlist('<?= $product->getId() ?>') -->
+            <a href="#" data-bind="attr: {title: '<?= __('Add to Wishlist') ?>'}, text: '<?= __('Add to Wishlist') ?>'" data-ajax='<?= $block->getAddToWishlistParams($product) ?>'>&nbsp;</a>
+        <!-- /ko -->
+        <!-- ko with: productInWishlist('<?= $product->getId() ?>') -->
+            <a href="#" data-bind="attr: {title: '<?= __('Remove from Wishlist') ?>', 'data-ajax': $data.remove}, text: '<?= __('Remove from Wishlist') ?>'">&nbsp;</a>
+        <!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+    {
+        ".product-list .to-wishlist": {
+            "Magento_Catalog/js/add-to": {}
+        }
+    }
+    </script>
+<?php endif; ?>
