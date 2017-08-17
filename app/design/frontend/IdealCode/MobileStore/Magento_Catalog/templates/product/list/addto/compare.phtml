@@ -1,0 +1,30 @@
+<?php
+/**
+ * Add to compare link in product list
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare
+ */
+
+/** @var \Magento\Catalog\Model\Product $product */
+$product = $block->getProduct();
+/** @var \Magento\Catalog\Helper\Product\Compare $helper */
+$helper = $block->getCompareHelper();
+?>
+<div data-bind="scope: 'compareProducts'">
+    <!-- ko ifnot: productInCompare('<?= $product->getId() ?>') -->
+        <a href="#"
+           title="<?= __('Add to Compare') ?>"
+           data-bind="text: '<?= __('Add to Compare') ?>'"
+           data-ajax='<?= $helper->getPostDataParams($product) ?>'>
+            &nbsp;
+        </a>
+    <!-- /ko -->
+    <!-- ko if: productInCompare('<?= $product->getId() ?>') -->
+    <a href="#"
+       title="<?= __('Remove from Compare') ?>"
+       data-bind="text: '<?= __('Remove from Compare') ?>'"
+       data-ajax='<?= $helper->getPostDataRemove($product) ?>'>
+        &nbsp;
+    </a>
+    <!-- /ko -->
+</div>

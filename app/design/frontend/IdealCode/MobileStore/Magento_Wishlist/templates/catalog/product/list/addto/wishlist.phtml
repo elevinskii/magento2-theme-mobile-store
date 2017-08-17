@@ -13,10 +13,19 @@ $helper = $block->getWishlistHelper();
 <?php if ($helper->isAllow()): ?>
     <div data-bind="scope: 'wishlist'" class="to-wishlist">
         <!-- ko ifnot: productInWishlist('<?= $product->getId() ?>') -->
-            <a href="#" data-bind="attr: {title: '<?= __('Add to Wishlist') ?>'}, text: '<?= __('Add to Wishlist') ?>'" data-ajax='<?= $block->getAddToWishlistParams($product) ?>'>&nbsp;</a>
+            <a href="#"
+               title="<?= __('Add to Wishlist') ?>"
+               data-bind="text: '<?= __('Add to Wishlist') ?>'"
+               data-ajax='<?= $block->getAddToWishlistParams($product) ?>'>
+                &nbsp;
+            </a>
         <!-- /ko -->
         <!-- ko with: productInWishlist('<?= $product->getId() ?>') -->
-            <a href="#" data-bind="attr: {title: '<?= __('Remove from Wishlist') ?>', 'data-ajax': $data.remove}, text: '<?= __('Remove from Wishlist') ?>'">&nbsp;</a>
+            <a href="#"
+               title="<?= __('Remove from Wishlist') ?>"
+               data-bind="attr: {'data-ajax': $data.remove}, text: '<?= __('Remove from Wishlist') ?>'">
+                &nbsp;
+            </a>
         <!-- /ko -->
     </div>
 <?php endif; ?>
