@@ -10,6 +10,7 @@ $productCollection = $block->getLoadedProductCollection();
 ?>
 <?php if($productCollection->count()): ?>
     <ul class="product-list">
+        <?php /** @var \Magento\Catalog\Model\Product $product */ ?>
         <?php foreach($productCollection as $product): ?>
             <?php $url = $product->getProductUrl(); ?>
             <?php $name = $product->getName(); ?>
@@ -51,6 +52,9 @@ $productCollection = $block->getLoadedProductCollection();
             "catalogAddToCart": {
                 "addToCartButtonTextAdded": "<?= __('Adding...') ?>"
             }
+        },
+        ".product-list": {
+            "Magento_Catalog/js/add-to": {}
         }
     }
     </script>

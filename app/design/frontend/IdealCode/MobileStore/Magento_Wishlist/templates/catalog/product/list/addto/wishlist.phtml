@@ -19,11 +19,4 @@ $helper = $block->getWishlistHelper();
             <a href="#" data-bind="attr: {title: '<?= __('Remove from Wishlist') ?>', 'data-ajax': $data.remove}, text: '<?= __('Remove from Wishlist') ?>'">&nbsp;</a>
         <!-- /ko -->
     </div>
-    <script type="text/x-magento-init">
-    {
-        ".product-list .to-wishlist": {
-            "Magento_Catalog/js/add-to": {}
-        }
-    }
-    </script>
 <?php endif; ?>
