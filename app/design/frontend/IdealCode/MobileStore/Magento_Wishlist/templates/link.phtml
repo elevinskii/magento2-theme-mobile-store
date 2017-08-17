@@ -8,8 +8,8 @@
 <li class="link wishlist" data-bind="scope: 'wishlist'">
     <a <?= $block->getLinkAttributes() ?>>
         <?= $block->getLabel() ?>
-        <!-- ko if: wishlist().count -->
-            <span data-bind="text: '(' + wishlist().count + ')'"></span>
+        <!-- ko if: wishlist().counter -->
+            <span data-bind="text: '(' + wishlist().counter + ')'"></span>
         <!-- /ko -->
     </a>
 </li>
