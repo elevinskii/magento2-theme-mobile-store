@@ -16,11 +16,20 @@ $productCollection = $block->getLoadedProductCollection();
             <?php $name = $product->getName(); ?>
             <li>
                 <div class="wrap">
+                    <?php $image = $block->getImage($product, 'category_page_list') ?>
                     <?php if($url): ?>
+                        <div class="image">
+                            <a href="<?= $url ?>" title="<?= $name ?>">
+                                <?= $image->toHtml() ?>
+                            </a>
+                        </div>
                         <div class="name">
                             <a href="<?= $url ?>" title="<?= $name ?>"><?= $name ?></a>
                         </div>
                     <?php else: ?>
+                        <div class="image">
+                            <?= $image->toHtml() ?>
+                        </div>
                         <div class="name"><?= $name ?></div>
                     <?php endif; ?>
                     <div class="description">

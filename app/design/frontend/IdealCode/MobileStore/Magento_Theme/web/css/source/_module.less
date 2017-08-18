@@ -2,8 +2,10 @@ body {
     .lib-css(background, @page__background-color);
 }
 .page-wrapper {
+    .lib-css(background-color, @color-white);
     .lib-url('images/bg.gif');
-    background: url("@{url}") repeat-x;
+    background-image: url("@{url}");
+    background-repeat: repeat-x;
 }
 .content {
     width: 1200px;
