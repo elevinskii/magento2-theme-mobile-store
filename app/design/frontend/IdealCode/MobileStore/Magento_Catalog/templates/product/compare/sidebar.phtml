@@ -1,0 +1,31 @@
+<?php
+/**
+ * Compare block in sidebar
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+?>
+<div class="block compare" data-bind="scope: 'compareProducts'">
+    <h2><?=  __('Compare Products') ?></h2>
+    <!-- ko if: compareProducts().count -->
+        <ul data-bind="foreach: compareProducts().items">
+            <li>
+                <a href="#"
+                   title="<?= __('Remove item') ?>"
+                   data-bind="attr: {'data-ajax': remove_url, class: 'remove'}">
+                </a>
+                <a class="name" data-bind="attr: {href: product_url, title: name}, text: name"></a>
+            </li>
+        </ul>
+    <!-- /ko -->
+    <!-- ko ifnot: compareProducts().count -->
+        <span data-bind="text: '<?= __('You have no items to compare.') ?>'"></span>
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+{
+    ".sidebar .compare": {
+        "Magento_Catalog/js/add-to": {}
+    }
+}
+</script>

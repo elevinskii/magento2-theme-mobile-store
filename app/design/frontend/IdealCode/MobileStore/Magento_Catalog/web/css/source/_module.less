@@ -1,5 +1,34 @@
+.sidebar {
+    .compare {
+        li {
+            padding: 12px 0;
+            border-top: 1px solid #c7c7c7;
+
+            &:first-child {
+                padding-top: 0;
+                border: 0;
+            }
+        }
+
+        .remove {
+            float: right;
+            margin-left: 10px;
+            font-size: 0;
+
+            .lib-icon-font(
+                @_icon-font-content: @icon-remove,
+                @_icon-font-size: 16px
+            );
+        }
+        .name {
+            font-size: 14px;
+            text-decoration: none;
+        }
+    }
+}
+
 .product-list {
-    margin: 30px -15px;
+    margin: 0 -15px;
 
     .lib-clearer();
 
