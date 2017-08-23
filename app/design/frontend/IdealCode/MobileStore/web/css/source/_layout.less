@@ -1,0 +1,13 @@
+.columns {
+    #lib-layout-columns();
+
+    .column.main {
+        #lib-layout-columns > .main();
+    }
+    .sidebar-main {
+        #lib-layout-columns > .left();
+    }
+    .sidebar-additional {
+        #lib-layout-columns > .right();
+    }
+}

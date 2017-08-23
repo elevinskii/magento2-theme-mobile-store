@@ -7,7 +7,9 @@
 $copyright = $block->getCopyright();
 ?>
 <?php if($copyright): ?>
-    <div class="copyright content">
-        <?= $block->getCopyright() ?>
+    <div class="copyright">
+        <div class="content">
+            <?= $copyright ?>
+        </div>
     </div>
 <?php endif; ?>
