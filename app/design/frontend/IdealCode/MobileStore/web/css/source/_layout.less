@@ -1,13 +1,28 @@
+@layout-sidebar-offset: 30px;
+
 .columns {
     #lib-layout-columns();
 
     .column.main {
         #lib-layout-columns > .main();
     }
+
     .sidebar-main {
         #lib-layout-columns > .left();
+        .lib-css(padding-right, @layout-sidebar-offset);
     }
+
     .sidebar-additional {
         #lib-layout-columns > .right();
+        .lib-css(padding-left, @layout-sidebar-offset);
     }
+}
+
+.@{layout-class-2columns__right} .sidebar-main {
+    padding-right: 0;
+    .lib-css(padding-left, @layout-sidebar-offset);
+}
+.@{layout-class-2columns__left} .sidebar-additional {
+    padding-left: 0;
+    .lib-css(padding-right, @layout-sidebar-offset);
 }
