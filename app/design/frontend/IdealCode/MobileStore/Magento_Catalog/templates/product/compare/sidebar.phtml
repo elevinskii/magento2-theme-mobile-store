@@ -2,7 +2,7 @@
 /**
  * Compare block in sidebar
  *
- * @var $block \Magento\Framework\View\Element\Template
+ * @var $block \IdealCode\Catalog\Block\Product\Compare\Sidebar
  */
 ?>
 <div class="block compare" data-bind="scope: 'compareProducts'">
@@ -10,13 +10,40 @@
     <!-- ko if: compareProducts().count -->
         <ul data-bind="foreach: compareProducts().items">
             <li>
+                <!-- ko if: product_url -->
+                    <a class="image" data-bind="attr: {href: product_url, title: name}">
+                        <!-- ko template: {name: image.template, data: image} --><!-- /ko -->
+                    </a>
+                <!-- /ko -->
+                <!-- ko ifnot: product_url -->
+                    <span class="image">
+                        <!-- ko template: {name: image.template, data: image} --><!-- /ko -->
+                    </span>
+                <!-- /ko -->
                 <a href="#"
                    title="<?= __('Remove item') ?>"
                    data-bind="attr: {'data-ajax': remove_url, class: 'remove'}">
                 </a>
-                <a class="name" data-bind="attr: {href: product_url, title: name}, text: name"></a>
+                <!-- ko if: product_url -->
+                    <a class="name" data-bind="attr: {href: product_url, title: name}, text: name"></a>
+                <!-- /ko -->
+                <!-- ko ifnot: product_url -->
+                    <span class="name" data-bind="text: name"></span>
+                <!-- /ko -->
             </li>
         </ul>
+        <div class="actions">
+            <a href="#"
+               title="<?= __('Compare') ?>"
+               data-bind="attr: {class: 'button large', href: compareProducts().listUrl}, text: '<?= __('Compare') ?>'">
+            </a>
+            <a href="#"
+               class="clear-all"
+               title="<?= __('Clear All') ?>"
+               data-bind="text: '<?= __('Clear All') ?>'"
+               data-ajax='<?= $block->getDataClearList() ?>'>
+            </a>
+        </div>
     <!-- /ko -->
     <!-- ko ifnot: compareProducts().count -->
         <span data-bind="text: '<?= __('You have no items to compare.') ?>'"></span>
