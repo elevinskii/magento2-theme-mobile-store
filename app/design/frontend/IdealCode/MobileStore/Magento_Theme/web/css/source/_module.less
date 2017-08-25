@@ -98,8 +98,25 @@ header {
         .lib-css(font-weight, @font-weight__heavier);
         .lib-css(border-radius, 6px, 1);
     }
+
     .block {
         margin-bottom: 20px;
+
+        li {
+            padding: 12px 0;
+            border-top: 1px solid #c7c7c7;
+
+            &:first-child {
+                padding-top: 0;
+                border: 0;
+            }
+            .name {
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .lib-clearer();
+        }
     }
 }
 
