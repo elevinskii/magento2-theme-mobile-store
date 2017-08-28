@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <!-- Remove from after.body.start -->
         <referenceBlock name="js_cookies" remove="true" />
@@ -56,19 +57,25 @@
 
         <!-- Work with page.wrapper/page.bottom.container -->
         <referenceContainer name="page.bottom.container">
-            <block name="page.bottom.shipping" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/shipping.phtml" />
+            <block name="page.bottom.shipping"
+                   class="Magento\Framework\View\Element\Template"
+                   template="Magento_Theme::html/shipping.phtml" />
         </referenceContainer>
 
         <!-- Work with page.wrapper/footer-container -->
         <referenceContainer name="footer-container">
             <container name="footer.columns" htmlTag="div" htmlClass="columns">
                 <container name="footer.columns.content" htmlTag="div" htmlClass="content">
-                    <block name="footer.column.info" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
+                    <block name="footer.column.info"
+                           class="Magento\Framework\View\Element\Template"
+                           template="Magento_Theme::html/footer_block.phtml">
                         <arguments>
                             <argument name="title" xsi:type="string" translate="true">Information</argument>
                         </arguments>
                     </block>
-                    <block name="footer.column.buy" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
+                    <block name="footer.column.buy"
+                           class="Magento\Framework\View\Element\Template"
+                           template="Magento_Theme::html/footer_block.phtml">
                         <arguments>
                             <argument name="title" xsi:type="string" translate="true">Why buy from us</argument>
                         </arguments>
@@ -78,7 +85,9 @@
                             </arguments>
                         </block>
                     </block>
-                    <block name="footer.column.account" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
+                    <block name="footer.column.account"
+                           class="Magento\Framework\View\Element\Template"
+                           template="Magento_Theme::html/footer_block.phtml">
                         <arguments>
                             <argument name="title" xsi:type="string" translate="true">My Account</argument>
                         </arguments>
@@ -88,7 +97,9 @@
                             </arguments>
                         </block>
                     </block>
-                    <block name="footer.column.newsletter" class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer_block.phtml">
+                    <block name="footer.column.newsletter"
+                           class="Magento\Framework\View\Element\Template"
+                           template="Magento_Theme::html/footer_block.phtml">
                         <arguments>
                             <argument name="title" xsi:type="string" translate="true">Newsletter</argument>
                         </arguments>

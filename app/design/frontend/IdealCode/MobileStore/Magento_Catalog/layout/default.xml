@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="head.components">
-            <block class="Magento\Framework\View\Element\Js\Components" name="compare_page_head_components" template="Magento_Catalog::js/compare.phtml"/>
+            <block name="compare_page_head_components"
+                   class="Magento\Framework\View\Element\Js\Components"
+                   template="Magento_Catalog::js/compare.phtml" />
         </referenceBlock>
         <referenceBlock name="catalog.compare.link" remove="true" />
         <referenceBlock name="catalog.compare.sidebar" class="IdealCode\Catalog\Block\Product\Compare\Sidebar" />

@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="after.body.start">
-            <block class="IdealCode\CatalogViewed\Block\ViewedAdd" name="viewed-add" template="IdealCode_CatalogViewed::js/viewed_add.phtml" />
+            <block name="viewed-add"
+                   class="IdealCode\CatalogViewed\Block\ViewedAdd"
+                   template="IdealCode_CatalogViewed::js/viewed_add.phtml" />
         </referenceContainer>
     </body>
 </page>

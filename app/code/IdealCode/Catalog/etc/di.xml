@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Magento\Catalog\CustomerData\CompareProducts" type="IdealCode\Catalog\CustomerData\CompareProducts" />
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Catalog\CustomerData\CompareProducts"
+                type="IdealCode\Catalog\CustomerData\CompareProducts" />
 
     <type name="Magento\Catalog\Controller\Product\Compare">
-        <plugin name="idealcode-catalog-controller-compare" type="IdealCode\Catalog\Plugin\Controller\Product\Compare" />
+        <plugin name="idealcode-catalog-controller-compare"
+                type="IdealCode\Catalog\Plugin\Controller\Product\Compare" />
     </type>
 </config>
