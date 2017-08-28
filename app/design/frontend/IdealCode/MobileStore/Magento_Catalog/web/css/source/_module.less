@@ -56,6 +56,22 @@
                 margin: 0 auto;
             }
         }
+
+        .price-box {
+            font-size: 19px;
+            color: #333;
+            margin-bottom: 6px;
+
+            .special-price {
+                color: #fc2a43;
+            }
+            .old-price {
+                font-size: 16px;
+                text-decoration: line-through;
+                vertical-align: top;
+            }
+        }
+
         .name {
             font-size: 15px;
             margin-bottom: 14px;
@@ -69,11 +85,13 @@
                 );
             }
         }
+
         .description {
             margin-bottom: 10px;
             height: 60px;
             overflow: hidden;
         }
+
         .addto {
             margin-top: 10px;
             .lib-css(font-weight, @font-weight__bold);

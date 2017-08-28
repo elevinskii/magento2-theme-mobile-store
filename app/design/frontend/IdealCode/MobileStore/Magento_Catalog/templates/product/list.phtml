@@ -23,6 +23,7 @@ $productCollection = $block->getLoadedProductCollection();
                                 <?= $image->toHtml() ?>
                             </a>
                         </div>
+                        <?= $block->getProductPrice($product) ?>
                         <div class="name">
                             <a href="<?= $url ?>" title="<?= $name ?>"><?= $name ?></a>
                         </div>
