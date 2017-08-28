@@ -1,0 +1,12 @@
+<?php
+/**
+ * Page title block
+ *
+ * @var \Magento\Theme\Block\Html\Title $block
+ */
+
+$title = $block->getPageTitle();
+?>
+<?php if($title): ?>
+    <h1><?= $title ?></h1>
+<?php endif; ?>

@@ -87,18 +87,19 @@ header {
     }
 }
 
-.sidebar {
-    h2 {
-        padding: 11px 20px 15px 20px;
-        margin-bottom: 20px;
-        font-size: 18px;
-        line-height: normal;
-        .lib-css(background, @color-gray-base);
-        .lib-css(color, @color-white);
-        .lib-css(font-weight, @font-weight__heavier);
-        .lib-css(border-radius, 6px, 1);
-    }
+.sidebar h2,
+.content h1 {
+    padding: 11px 20px 15px 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: normal;
+    .lib-css(background, @color-gray-base);
+    .lib-css(color, @color-white);
+    .lib-css(font-weight, @font-weight__heavier);
+    .lib-css(border-radius, 6px, 1);
+}
 
+.sidebar {
     .block {
         margin-bottom: 20px;
 

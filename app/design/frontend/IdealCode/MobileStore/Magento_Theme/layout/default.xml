@@ -46,11 +46,10 @@
         <referenceBlock name="skip_to_content.target" remove="true" />
 
         <!-- Remove from page.wrapper/main.content/columns.top -->
-        <referenceBlock name="page.main.title" remove="true" />
         <referenceContainer name="page.messages" remove="true" />
+        <move element="page.main.title" destination="content.top" />
 
         <!-- Remove from page.wrapper/main.content/columns/main -->
-        <referenceContainer name="content.top" remove="true" />
         <referenceContainer name="content.aside" remove="true" />
         <referenceBlock name="authentication-popup" remove="true" />
         <referenceContainer name="content.bottom" remove="true" />
