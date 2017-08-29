@@ -6,6 +6,7 @@
  */
 use Magento\Framework\App\Action\Action;
 
+$isWidget = $block instanceof \Magento\CatalogWidget\Block\Product\ProductsList;
 $productCollection = $block->getLoadedProductCollection();
 ?>
 <?php if($productCollection->count()): ?>
@@ -33,9 +34,11 @@ $productCollection = $block->getLoadedProductCollection();
                         </div>
                         <div class="name"><?= $name ?></div>
                     <?php endif; ?>
-                    <div class="description">
-                        <?= $product->getShortDescription() ?>
-                    </div>
+                    <?php if(!$isWidget): ?>
+                        <div class="description">
+                            <?= $product->getShortDescription() ?>
+                        </div>
+                    <?php endif; ?>
                     <?php if($product->isSaleable()): ?>
                         <?php $postParams = $block->getAddToCartPostParams($product); ?>
                         <form action="<?= $postParams['action'] ?>" method="post" class="to-cart">
@@ -63,7 +66,7 @@ $productCollection = $block->getLoadedProductCollection();
                 "addToCartButtonTextAdded": "<?= __('Adding...') ?>"
             }
         },
-        ".product-list": {
+        ".product-list .addto": {
             "Magento_Catalog/js/add-to": {}
         }
     }
