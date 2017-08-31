@@ -1,9 +1,9 @@
 "My Cart","Корзина"
 "item","товар"
 "items","товар(ов)"
-"item1","товар"
-"item2","товара",
-"item3","товаров"
+"item","товар"
+"items","товара",
+"items2","товаров"
 "Cart Subtotal:","Стоимость товаров:"
 "Recently added item(s)","Недавно добавленные товары"
 "You have no items in your shopping cart.", "Ваша корзина пуста."
@@ -17,6 +17,8 @@
 "Sign In","Войти"
 "Sign Out","Выйти"
 "Search","Найти"
+"There is <a href='%1'>%2</a> in your cart.","В вашей корзине <a href='%1'>%2</a>."
+"There are <a href='%1'>%2</a> in your cart.","В вашей корзине <a href='%1'>%2</a>."
 "Compare Products","Сравнение"
 "Compare","Сравнить"
 "Clear All","Очистить всё"

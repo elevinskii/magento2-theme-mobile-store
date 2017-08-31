@@ -14,12 +14,18 @@
             </arguments>
         </referenceBlock>
         <referenceBlock name="top.links">
-            <block class="Magento\Checkout\Block\Link" name="checkout-link" after="wish-list-link">
+            <block name="checkout-link" class="Magento\Checkout\Block\Link" after="wish-list-link">
                 <arguments>
                     <argument name="label" xsi:type="string" translate="true">Checkout</argument>
                 </arguments>
             </block>
         </referenceBlock>
+        <referenceContainer name="sidebar.additional">
+            <block name="minicart-sidebar"
+                   class="Magento\Checkout\Block\Cart\Sidebar"
+                   template="Magento_Checkout::cart/sidebar.phtml"
+                   before="-" />
+        </referenceContainer>
         <referenceBlock name="footer.column.account">
             <block name="footer-cart-link" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
