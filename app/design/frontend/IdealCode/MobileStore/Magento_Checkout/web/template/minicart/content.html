@@ -3,7 +3,7 @@
         <!-- ko foreach: getRegion('subtotalContainer') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
-        <!-- ko i18n: 'Recently added item(s)' --><!-- /ko -->
+        <div class="recently" data-bind="text: $t('Recently added item(s):')"></div>
     </div>
 
     <div class="cart-content">
@@ -14,18 +14,16 @@
         </ul>
     </div>
 
-    <div class="cart-footer">
-        <a id="top-cart-btn-checkout" class="button">
-            <!-- ko i18n: 'Checkout order' --><!-- /ko -->
+    <div class="cart-footer actions">
+        <a id="top-cart-btn-checkout"
+           data-bind="attr: {class: 'button' + (isAdditionalSidebar($element) ? ' large' : '')}, text: $t('Checkout order')">
         </a>
-        <a class="button" data-bind="attr: {href: shoppingCartUrl}">
-            <!-- ko i18n: 'My Cart' --><!-- /ko -->
+        <a class="button"
+           data-bind="attr: {href: shoppingCartUrl}, visible: !isAdditionalSidebar($element), text: $t('My Cart')">
         </a>
     </div>
 <!-- /ko -->
 
 <!-- ko ifnot: getCartParam('summary_count') -->
-    <div class="empty">
-        <!-- ko i18n: 'You have no items in your shopping cart.' --><!-- /ko -->
-    </div>
+    <div class="empty" data-bind="text: $t('You have no items in your shopping cart.')"></div>
 <!-- /ko -->

@@ -24,6 +24,15 @@ define([
                     return count+' '+titles[count == 1 ? 0 : 1];
                 }
             }
+        },
+
+        /**
+         * Check additional sidebar
+         * @param element
+         * @returns {boolean}
+         */
+        isAdditionalSidebar: function(element) {
+            return $(element).closest('.sidebar-additional').length > 0;
         }
     });
 });

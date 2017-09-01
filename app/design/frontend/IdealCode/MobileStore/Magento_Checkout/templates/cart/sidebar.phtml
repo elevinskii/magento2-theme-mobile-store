@@ -10,12 +10,14 @@ $jsPhrases = [
     $block->escapeJsQuote(__('There are <a href=\'%1\'>%2</a> in your cart.'))
 ];
 ?>
-<div class="block cart" data-bind="scope: 'minicart_content'">
+<div class="block cart-sidebar" data-bind="scope: 'minicart_content'">
     <h2><?= __('My Cart') ?></h2>
     <!-- ko if: getCartParam('summary_count') -->
-        <span data-bind="html: (getCartParam('summary_count') == 1 ? '<?= $jsPhrases[0] ?>' : '<?= $jsPhrases[1] ?>')
-            .replace('%1', shoppingCartUrl).replace('%2', getLabel('<?= $block->getCurrentStoreLocale() ?>'))">
+        <span class="summary"
+              data-bind="html: (getCartParam('summary_count') == 1 ? '<?= $jsPhrases[0] ?>' : '<?= $jsPhrases[1] ?>')
+                               .replace('%1', shoppingCartUrl).replace('%2', getLabel('<?= $block->getCurrentStoreLocale() ?>'))">
         </span>
+        <!-- ko template: getTemplate() --><!-- /ko -->
     <!-- /ko -->
     <!-- ko ifnot: getCartParam('summary_count') -->
         <span data-bind="text: '<?= __('You have no items in your shopping cart.') ?>'"></span>
