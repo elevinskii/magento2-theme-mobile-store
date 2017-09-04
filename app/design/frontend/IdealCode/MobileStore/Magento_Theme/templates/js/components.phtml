@@ -1,0 +1,14 @@
+<?php
+/**
+ * Main JS components
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<?php if($block->getData('jsLayout')): ?>
+<script type="text/x-magento-init">
+{
+    "*": <?= $block->getJsLayout() ?>
+}
+</script>
+<?php endif; ?>

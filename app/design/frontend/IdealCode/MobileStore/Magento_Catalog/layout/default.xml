@@ -2,10 +2,18 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="head.components">
-            <block name="compare_page_head_components"
-                   class="Magento\Framework\View\Element\Js\Components"
-                   template="Magento_Catalog::js/compare.phtml" />
+        <referenceBlock name="common.head.components">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="Magento_Ui/js/core/app" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="compareProducts" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products</item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
         </referenceBlock>
         <referenceBlock name="catalog.compare.link" remove="true" />
         <referenceBlock name="catalog.compare.sidebar" class="IdealCode\Catalog\Block\Product\Compare\Sidebar" />

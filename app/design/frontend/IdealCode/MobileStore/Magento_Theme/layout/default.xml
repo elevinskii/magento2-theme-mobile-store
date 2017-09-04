@@ -2,6 +2,12 @@
 <page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="after.body.start">
+            <block name="common.head.components"
+                   class="Magento\Framework\View\Element\Template"
+                   template="Magento_Theme::js/components.phtml" />
+        </referenceContainer>
+
         <!-- Remove from after.body.start -->
         <referenceBlock name="js_cookies" remove="true" />
         <referenceBlock name="global_notices" remove="true" />
