@@ -1,15 +1,22 @@
 define([
     'jquery',
-    'Magento_Customer/js/customer-data',
-    'jquery/ui',
-], function($, customerData) {
-    "use strict";
+    'jquery/ui'
+], function($) {
 
-    $.widget('idealCode.addto', {
+    $.widget('idealCode.dataAjax', {
+
+        /**
+         * Init widget
+         * @private
+         */
         _create: function() {
             this._bind();
         },
 
+        /**
+         * Bind events for links
+         * @private
+         */
         _bind: function() {
             var self = this,
                 events = {};
@@ -21,6 +28,13 @@ define([
             this._on(this.element, events);
         },
 
+        /**
+         * Processing ajax request
+         * @param elem
+         * @param params
+         * @returns {boolean}
+         * @private
+         */
         _ajax: function(elem, params) {
             if(elem.is('.disabled')) {
                 return false;
@@ -39,8 +53,8 @@ define([
                 url: params.action,
                 data: params.data
             });
-        },
+        }
     });
 
-    return $.idealCode.addto;
+    return $.idealCode.dataAjax;
 });
