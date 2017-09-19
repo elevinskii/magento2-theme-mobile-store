@@ -45,8 +45,10 @@ define([
                 params.data.form_key = formKey;
             }
 
-            var msg = $.mage.__('Loading..');
-            elem.addClass('disabled').attr('title', msg).text(msg);
+            var msg = $.mage.__(elem.is('[data-loading]') ? elem.data('loading') : 'Loading..');
+            if(msg) {
+                elem.addClass('disabled').attr('title', msg).text(msg);
+            }
 
             $.ajax({
                 type: 'post',
