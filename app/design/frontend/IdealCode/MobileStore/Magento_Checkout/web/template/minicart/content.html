@@ -15,8 +15,8 @@
     </div>
 
     <div class="cart-footer actions">
-        <a id="top-cart-btn-checkout"
-           data-bind="attr: {class: 'button' + (isAdditionalSidebar($element) ? ' large' : '')}, text: $t('Checkout order')">
+        <a data-bind="attr: {class: 'button' + (isAdditionalSidebar($element) ? ' large' : ''), href: window.checkout.checkoutUrl},
+                      text: $t('Checkout order')">
         </a>
         <a class="button"
            data-bind="attr: {href: shoppingCartUrl}, visible: !isAdditionalSidebar($element), text: $t('My Cart')">
