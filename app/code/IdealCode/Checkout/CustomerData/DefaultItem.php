@@ -34,7 +34,23 @@ class DefaultItem extends \Magento\Checkout\CustomerData\DefaultItem
     {
         $result = parent::doGetItemData();
         $result['remove_url'] = $this->cartHelper->getDeletePostJson($this->item);
+        $result['product_image_sidebar'] = $this->getProductImageSidebar();
 
         return $result;
+    }
+
+    /**
+     * Get product minicart item image for sidebar output
+     * @return array
+     */
+    protected function getProductImageSidebar()
+    {
+        $imageHelper = $this->imageHelper->init($this->getProductForThumbnail(), 'mini_cart_product_sidebar');
+        return [
+            'src' => $imageHelper->getUrl(),
+            'alt' => $imageHelper->getLabel(),
+            'width' => $imageHelper->getWidth(),
+            'height' => $imageHelper->getHeight(),
+        ];
     }
 }

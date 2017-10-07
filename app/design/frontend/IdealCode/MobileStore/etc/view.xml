@@ -7,6 +7,10 @@
                 <width>68</width>
                 <height>68</height>
             </image>
+            <image id="mini_cart_product_sidebar" type="thumbnail">
+                <width>90</width>
+                <height>90</height>
+            </image>
             <image id="category_page_list" type="small_image">
                 <width>190</width>
                 <height>190</height>
