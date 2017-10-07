@@ -10,6 +10,7 @@ $isWidget = $block instanceof \Magento\CatalogWidget\Block\Product\ProductsList;
 $productCollection = $block->getLoadedProductCollection();
 ?>
 <?php if($productCollection->count()): ?>
+    <?= $block->getToolbarHtml() ?>
     <ul class="product-list">
         <?php /** @var \Magento\Catalog\Model\Product $product */ ?>
         <?php foreach($productCollection as $product): ?>
@@ -59,6 +60,7 @@ $productCollection = $block->getLoadedProductCollection();
             </li>
         <?php endforeach; ?>
     </ul>
+    <?= $block->getToolbarHtml() ?>
     <script type="text/x-magento-init">
     {
         ".product-list .to-cart": {

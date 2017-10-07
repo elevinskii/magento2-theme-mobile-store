@@ -1,0 +1,73 @@
+<?php
+/**
+ * Pager template
+ *
+ * @var $block \Magento\Theme\Block\Html\Pager
+ */
+?>
+<?php if ($block->getCollection()->getSize()): ?>
+
+    <?php if ($block->getLastPageNum() > 1): ?>
+        <div class="pages">
+            <div class="label"><?= __('Page') ?></div>
+            <ul class="items">
+                <?php if(!$block->isFirstPage()): ?>
+                    <li class="item">
+                        <?php $text = $block->getAnchorTextForPrevious() ? $block->getAnchorTextForPrevious() : ''; ?>
+                        <a href="<?= $block->getPreviousPageUrl() ?>"
+                           class="<?= $text ? 'page' : 'action previous' ?>"
+                           title="<?= $text ?: __('Previous') ?>">
+                            <?= $text ?>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if($block->canShowFirst()): ?>
+                    <li class="item">
+                        <a href="<?= $block->getFirstPageUrl() ?>" class="page">1</a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if ($block->canShowPreviousJump()): ?>
+                    <li class="item">
+                        <a href="<?= $block->getPreviousJumpUrl() ?>" class="page">...</a>
+                    </li>
+                <?php endif;?>
+
+                <?php foreach ($block->getFramePages() as $page): ?>
+                    <li class="item">
+                        <?php if($block->isPageCurrent($page)): ?>
+                            <strong class="page"><?= $page ?></strong>
+                        <?php else: ?>
+                            <a href="<?= $block->getPageUrl($page) ?>" class="page"><?= $page ?></a>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+
+                <?php if ($block->canShowNextJump()): ?>
+                    <li class="item">
+                        <a href="<?= $block->getNextJumpUrl() ?>" class="page">...</a>
+                    </li>
+                <?php endif;?>
+
+                <?php if($block->canShowLast()): ?>
+                    <li class="item">
+                        <a href="<?= $block->getLastPageUrl() ?>" class="page"><?= $block->getLastPageNum() ?></a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if(!$block->isLastPage()): ?>
+                    <li class="item">
+                        <?php $text = $block->getAnchorTextForNext() ? $block->getAnchorTextForNext() : '';?>
+                        <a href="<?= $block->getNextPageUrl() ?>"
+                           class="<?= $text ? 'page' : 'action next' ?>"
+                           title="<?= $text ?: __('Next') ?>">
+                            <?= $text ?>
+                        </a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
+<?php endif ?>
