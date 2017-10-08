@@ -7,6 +7,7 @@
 ?>
 <?php if ($block->getCollection()->getSize()): ?>
     <div class="toolbar">
+        <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')); ?>
         <?= $block->getPagerHtml() ?>
     </div>
 <?php endif ?>

@@ -1,0 +1,28 @@
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+$limitParamName = \IdealCode\Catalog\Model\Product\ProductList\Toolbar::LIMIT_PARAM_NAME;
+?>
+<div class="limiter">
+    <div class="label"><?= __('Show') ?></div>
+    <select>
+        <?php foreach($block->getAvailableLimit() as $key => $limit): ?>
+            <option value="<?= $block->getPagerUrl([$limitParamName => $key]) ?>"
+                <?= $block->isLimitCurrent($key) ? ' selected' : '' ?>>
+                <?= $limit ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>
+<script type="text/x-magento-init">
+{
+    ".limiter select": {
+        "redirectUrl": {
+            "event": "change"
+        }
+    }
+}
+</script>
