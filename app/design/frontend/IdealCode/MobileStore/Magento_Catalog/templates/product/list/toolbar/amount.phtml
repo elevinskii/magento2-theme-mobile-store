@@ -1,0 +1,18 @@
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \IdealCode\Catalog\Block\Product\ProductList\Toolbar
+ */
+?>
+<p class="amount">
+    <?php if($block->getLastPageNum() > 1): ?>
+        <?php if($block->getFirstNum() == $block->getLastNum()): ?>
+            <?= __('Item %1 of %2', $block->getFirstNum(), $block->getTotalNum()) ?>
+        <?php else: ?>
+            <?= __('Items %1-%2 of %3', $block->getFirstNum(), $block->getLastNum(), $block->getTotalNum()) ?>
+        <?php endif; ?>
+    <?php else: ?>
+        <?= $block->getAmountLabel($block->getTotalNum()) ?>
+    <?php endif; ?>
+</p>

@@ -3,6 +3,8 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Magento\Catalog\CustomerData\CompareProducts"
                 type="IdealCode\Catalog\CustomerData\CompareProducts" />
+    <preference for="Magento\Catalog\Block\Product\ProductList\Toolbar"
+                type="IdealCode\Catalog\Block\Product\ProductList\Toolbar" />
     <preference for="Magento\Catalog\Model\Product\ProductList\Toolbar"
                 type="IdealCode\Catalog\Model\Product\ProductList\Toolbar" />
 
