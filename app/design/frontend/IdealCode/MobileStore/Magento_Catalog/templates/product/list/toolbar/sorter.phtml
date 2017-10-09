@@ -1,0 +1,31 @@
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+$orderParamName = \IdealCode\Catalog\Model\Product\ProductList\Toolbar::ORDER_PARAM_NAME;
+$directionParamName = \IdealCode\Catalog\Model\Product\ProductList\Toolbar::DIRECTION_PARAM_NAME;
+?>
+<div class="sorter">
+    <label><?= __('Sort by:') ?></label>
+    <select>
+        <?php foreach($block->getAvailableOrders() as $key => $order): ?>
+            <option value="<?= $block->getPagerUrl([$orderParamName => $key]) ?>"
+                <?= $block->isOrderCurrent($key) ? ' selected' : '' ?>>
+                <?= __($order) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+    <?php if($block->getCurrentDirection() == 'desc'): ?>
+        <a href="<?= $block->getPagerUrl([$directionParamName => 'asc']) ?>"
+           class="arrow asc"
+           title="<?= __('Set ascending direction') ?>">
+        </a>
+    <?php else: ?>
+        <a href="<?= $block->getPagerUrl([$directionParamName => 'desc']) ?>"
+           class="arrow desc"
+           title="<?= __('Set descending direction') ?>">
+        </a>
+    <?php endif; ?>
+</div>

@@ -31,24 +31,52 @@
 .toolbar {
     margin-bottom: 30px;
 
-    .limiter {
-        float: right;
+    .pager {
+        .lib-clearer();
 
-        .label {
-            display: inline-block;
-            margin-right: 6px;
+        .limiter {
+            float: right;
+        }
+        .amount {
+            float: left;
         }
     }
-    .amount {
-        float: left;
-    }
 
+    label {
+        margin-right: 6px;
+    }
     select {
         min-width: 63px;
         height: 22px;
     }
 
-    .lib-clearer();
+    .expanded {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid #c7c7c7;
+
+        .lib-clearer();
+
+        .sorter {
+            float: right;
+        }
+
+        .arrow {
+            display: inline-block;
+            margin-left: 18px;
+
+            &.asc {
+                .lib-icon-font(
+                    @_icon-font-content: @icon-up
+                );
+            }
+            &.desc {
+                .lib-icon-font(
+                    @_icon-font-content: @icon-down
+                );
+            }
+        }
+    }
 }
 
 .product-list {

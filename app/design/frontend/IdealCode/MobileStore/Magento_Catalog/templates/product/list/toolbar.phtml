@@ -7,8 +7,25 @@
 ?>
 <?php if ($block->getCollection()->getSize()): ?>
     <div class="toolbar">
-        <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')); ?>
-        <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')); ?>
-        <?= $block->getPagerHtml() ?>
+        <div class="pager">
+            <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')); ?>
+            <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')); ?>
+            <?= $block->getPagerHtml() ?>
+        </div>
+
+        <?php if($block->isExpanded()): ?>
+            <div class="expanded">
+                <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')); ?>
+            </div>
+        <?php endif; ?>
     </div>
+    <script type="text/x-magento-init">
+    {
+        ".toolbar select": {
+            "redirectUrl": {
+                "event": "change"
+            }
+        }
+    }
+    </script>
 <?php endif ?>
