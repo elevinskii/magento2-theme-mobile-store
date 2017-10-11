@@ -2,8 +2,12 @@
 /**
  * Product list toolbar
  *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
  * @var $block \IdealCode\Catalog\Block\Product\ProductList\Toolbar
  */
+
+/** @var \IdealCode\Catalog\Helper\Data $helper */
+$helper = $this->helper('IdealCode\Catalog\Helper\Data');
 ?>
 <p class="amount">
     <?php if($block->getLastPageNum() > 1): ?>
@@ -13,6 +17,6 @@
             <?= __('Items %1-%2 of %3', $block->getFirstNum(), $block->getLastNum(), $block->getTotalNum()) ?>
         <?php endif; ?>
     <?php else: ?>
-        <?= $block->getAmountLabel($block->getTotalNum()) ?>
+        <?= $helper->getAmountLabel($block->getTotalNum()) ?>
     <?php endif; ?>
 </p>

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Stock quantity
+ *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
+ * @var $block \Magento\CatalogInventory\Block\Stockqty\DefaultStockqty
+ */
+
+/** @var \IdealCode\Catalog\Helper\Data $helper */
+$helper = $this->helper('IdealCode\Catalog\Helper\Data');
+?>
+<?php if($block->isMsgVisible()): ?>
+    <div class="availability-only">
+        <?= __('Only %1 left', '<strong>'.$helper->getAmountLabel($block->getStockQtyLeft()).'</strong>') ?>
+    </div>
+<?php endif; ?>

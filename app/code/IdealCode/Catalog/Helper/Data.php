@@ -1,8 +1,8 @@
 <?php
 
-namespace IdealCode\Catalog\Block\Product\ProductList;
+namespace IdealCode\Catalog\Helper;
 
-class Toolbar extends \Magento\Catalog\Block\Product\ProductList\Toolbar
+class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
      * @param $count
@@ -11,7 +11,7 @@ class Toolbar extends \Magento\Catalog\Block\Product\ProductList\Toolbar
     public function getAmountLabel($count)
     {
         $titles = [__('item'), __('items'), __('items2')];
-        $locale = $this->_scopeConfig->getValue(
+        $locale = $this->scopeConfig->getValue(
             \Magento\Directory\Helper\Data::XML_PATH_DEFAULT_LOCALE,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
