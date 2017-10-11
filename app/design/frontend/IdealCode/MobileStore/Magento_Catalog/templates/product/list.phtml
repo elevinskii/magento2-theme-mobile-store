@@ -4,7 +4,6 @@
  *
  * @var $block \Magento\Catalog\Block\Product\ListProduct
  */
-use Magento\Framework\App\Action\Action;
 
 $isWidget = $block instanceof \Magento\CatalogWidget\Block\Product\ProductsList;
 $productCollection = $block->getLoadedProductCollection();
@@ -44,7 +43,6 @@ $productCollection = $block->getLoadedProductCollection();
                         <?php $postParams = $block->getAddToCartPostParams($product); ?>
                         <form action="<?= $postParams['action'] ?>" method="post" class="to-cart">
                             <input type="hidden" name="product" value="<?= $postParams['data']['product'] ?>" />
-                            <input type="hidden" name="<?= Action::PARAM_NAME_URL_ENCODED ?>" value="<?= $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>" />
                             <?= $block->getBlockHtml('formkey') ?>
                             <button class="action tocart large" title="<?= __('Add to Cart') ?>">
                                 <span><?= __('Add to Cart') ?></span>

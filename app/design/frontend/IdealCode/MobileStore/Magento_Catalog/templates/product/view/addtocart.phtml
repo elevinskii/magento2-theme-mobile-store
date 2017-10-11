@@ -1,0 +1,29 @@
+<?php
+/**
+ * Add product to cart
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php $product = $block->getProduct(); ?>
+<?php if($product->isSaleable()): ?>
+    <?php if($block->shouldRenderQuantity()): ?>
+        <div class="qty">
+            <label><?= __('Qty:') ?></label>
+            <input type="text" name="qty" value="<?= $block->getProductDefaultQty() ?>" />
+        </div>
+    <?php endif; ?>
+    <button class="action tocart large" title="<?= __('Add to Cart') ?>">
+        <span><?= __('Add to Cart') ?></span>
+    </button>
+    <script type="text/x-magento-init">
+    {
+        ".to-cart": {
+            "catalogAddToCart": {
+                "addToCartButtonTextAdded": "<?= __('Adding...') ?>",
+                "minicartSelector": "header .cart"
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

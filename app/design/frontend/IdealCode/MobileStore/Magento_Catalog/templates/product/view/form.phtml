@@ -1,0 +1,13 @@
+<?php
+/**
+ * Product view template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php $product = $block->getProduct(); ?>
+<form action="<?= $block->getSubmitUrl($product) ?>" class="to-cart">
+    <input type="hidden" name="product" value="<?= $product->getId() ?>" />
+    <?= $block->getBlockHtml('formkey') ?>
+    <?= $block->getChildHtml('product_info_form_content') ?>
+</form>
