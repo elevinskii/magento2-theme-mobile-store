@@ -13,8 +13,10 @@
         <referenceContainer name="product.info.price" htmlClass="" />
         <referenceContainer name="product.info.stock.sku" htmlClass="" />
         <referenceBlock name="product.info.sku" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
 
         <move element="page.main.title" destination="product.info.main" before="-" />
         <move element="product.info.media" destination="content" before="-" />
+        <move element="product.info.overview" destination="product.info.main" after="alert.urls" />
     </body>
 </page>

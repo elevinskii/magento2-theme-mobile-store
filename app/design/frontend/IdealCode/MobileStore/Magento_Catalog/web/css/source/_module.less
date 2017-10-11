@@ -176,6 +176,7 @@
             line-height: 22px;
             margin-bottom: 12px;
         }
+
         .stock {
             font-size: 12px;
             margin: 5px 0;
@@ -186,6 +187,17 @@
             }
             &.unavailable {
                 color: red;
+            }
+        }
+
+        .price-box {
+            margin: 15px 0 20px;
+            font-size: 24px;
+            line-height: 24px;
+            .lib-css(color, @color-blue-base);
+
+            .old-price {
+                text-decoration: line-through;
             }
         }
     }
