@@ -4,10 +4,17 @@
     <body>
         <referenceBlock name="page.main.title">
             <arguments>
-                <argument name="header_css_class" xsi:type="string"></argument>
+                <argument name="header_css_class" xsi:type="string">product-title</argument>
             </arguments>
         </referenceBlock>
 
+        <referenceContainer name="product.info.media" htmlClass="gallery" />
+        <referenceContainer name="product.info.main" htmlClass="info" />
+        <referenceContainer name="product.info.price" htmlClass="" />
+        <referenceContainer name="product.info.stock.sku" htmlClass="" />
+        <referenceBlock name="product.info.sku" remove="true" />
+
         <move element="page.main.title" destination="product.info.main" before="-" />
+        <move element="product.info.media" destination="content" before="-" />
     </body>
 </page>

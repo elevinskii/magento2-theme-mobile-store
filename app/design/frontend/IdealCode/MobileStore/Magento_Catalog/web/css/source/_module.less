@@ -161,3 +161,32 @@
 .@{layout-class-3columns} .product-list li {
     width: 100%/2;
 }
+
+.catalog-product-view {
+    .gallery {
+        float: left;
+        width: 310px;
+        margin-right: 30px;
+    }
+    .info {
+        overflow: hidden;
+
+        .product-title {
+            font-size: 22px;
+            line-height: 22px;
+            margin-bottom: 12px;
+        }
+        .stock {
+            font-size: 12px;
+            margin: 5px 0;
+            .lib-css(font-weight, @font-weight__bold);
+
+            &.available {
+                color: #74b436;
+            }
+            &.unavailable {
+                color: red;
+            }
+        }
+    }
+}
