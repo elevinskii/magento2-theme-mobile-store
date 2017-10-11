@@ -60,6 +60,12 @@
 
         <!-- Remove from page.wrapper/main.content/columns.top -->
         <referenceContainer name="page.messages" remove="true" />
+        <referenceBlock name="page.main.title">
+            <arguments>
+                <argument name="header_css_class" xsi:type="string">title</argument>
+            </arguments>
+        </referenceBlock>
+
         <move element="page.main.title" destination="content.top" />
 
         <!-- Remove from page.wrapper/main.content/columns/main -->

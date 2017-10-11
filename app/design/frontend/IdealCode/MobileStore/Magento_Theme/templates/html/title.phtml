@@ -6,7 +6,8 @@
  */
 
 $title = $block->getPageTitle();
+$cssClass = $block->getHeaderCssClass();
 ?>
 <?php if($title): ?>
-    <h1><?= $title ?></h1>
+    <h1<?= $cssClass ? ' class="'.$cssClass.'"' : '' ?>><?= $title ?></h1>
 <?php endif; ?>
