@@ -146,6 +146,9 @@
             a {
                 text-decoration: none;
 
+                &:before {
+                    margin-right: 8px;
+                }
                 &.disabled {
                     cursor: default;
                     .lib-css(color, @link__color);
@@ -153,6 +156,12 @@
             }
         }
     }
+}
+
+.compare-action {
+    .lib-icon-font(
+        @_icon-font-content: @icon-compare
+    );
 }
 
 .@{layout-class-1column} .product-list li {

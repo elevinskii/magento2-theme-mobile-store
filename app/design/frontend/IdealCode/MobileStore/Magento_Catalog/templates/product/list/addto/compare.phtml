@@ -14,7 +14,7 @@ $helper = $block->getCompareHelper();
     <!-- ko ifnot: productInCompare('<?= $product->getId() ?>') -->
         <a href="#"
            title="<?= __('Add to Compare') ?>"
-           data-bind="text: '<?= __('Add to Compare') ?>'"
+           data-bind="attr: {class: 'compare-action'}, text: '<?= __('Add to Compare') ?>'"
            data-ajax='<?= $helper->getPostDataParams($product) ?>'>
             &nbsp;
         </a>
@@ -22,7 +22,7 @@ $helper = $block->getCompareHelper();
     <!-- ko if: productInCompare('<?= $product->getId() ?>') -->
     <a href="#"
        title="<?= __('Remove from Compare') ?>"
-       data-bind="text: '<?= __('Remove from Compare') ?>'"
+       data-bind="attr: {class: 'compare-action'}, text: '<?= __('Remove from Compare') ?>'"
        data-ajax='<?= $helper->getPostDataRemove($product) ?>'>
         &nbsp;
     </a>
