@@ -2,13 +2,14 @@
 /**
  * Add to wishlist link in product list
  *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
  * @var $block \Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist
  */
 
 /** @var \Magento\Catalog\Model\Product $product */
 $product = $block->getProduct();
 /** @var \Magento\Wishlist\Helper\Data $helper */
-$helper = $block->getWishlistHelper();
+$helper = $this->helper('Magento\Wishlist\Helper\Data');
 ?>
 <?php if ($helper->isAllow()): ?>
     <div data-bind="scope: 'wishlist'">

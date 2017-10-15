@@ -2,13 +2,14 @@
 /**
  * Add to compare link in product list
  *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
  * @var $block \Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare
  */
 
 /** @var \Magento\Catalog\Model\Product $product */
 $product = $block->getProduct();
 /** @var \Magento\Catalog\Helper\Product\Compare $helper */
-$helper = $block->getCompareHelper();
+$helper = $this->helper('Magento\Catalog\Helper\Product\Compare');
 ?>
 <div data-bind="scope: 'compareProducts'">
     <!-- ko ifnot: productInCompare('<?= $product->getId() ?>') -->

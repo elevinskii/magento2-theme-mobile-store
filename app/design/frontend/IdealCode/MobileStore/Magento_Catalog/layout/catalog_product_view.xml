@@ -12,8 +12,13 @@
         <referenceContainer name="product.info.main" htmlClass="info" />
         <referenceContainer name="product.info.price" htmlClass="" />
         <referenceContainer name="product.info.stock.sku" htmlClass="" />
+        <referenceContainer name="product.info.social" htmlClass="" />
         <referenceBlock name="product.info.sku" remove="true" />
-        <referenceBlock name="product.info.review" remove="true" />
+        <referenceBlock name="view.addto.wishlist"
+                        template="Magento_Wishlist::catalog/product/list/addto/wishlist.phtml" />
+        <referenceBlock name="view.addto.compare"
+                        template="Magento_Catalog::product/list/addto/compare.phtml" />
+        <referenceBlock name="product.info.mailto" remove="true" />
 
         <move element="page.main.title" destination="product.info.main" before="-" />
         <move element="product.info.media" destination="content" before="-" />
