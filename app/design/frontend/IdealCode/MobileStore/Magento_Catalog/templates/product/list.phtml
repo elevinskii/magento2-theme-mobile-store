@@ -23,6 +23,10 @@ $productCollection = $block->getLoadedProductCollection();
                             <a href="<?= $url ?>" title="<?= $name ?>">
                                 <?= $image->toHtml() ?>
                             </a>
+                            <?php $specialPrice = $product->getSpecialPrice(); ?>
+                            <?php if($specialPrice && $product->getPrice() > $specialPrice): ?>
+                                <div class="sale"><?= __('Sale') ?></div>
+                            <?php endif; ?>
                         </div>
                         <?= $block->getProductPrice($product) ?>
                         <div class="name">
