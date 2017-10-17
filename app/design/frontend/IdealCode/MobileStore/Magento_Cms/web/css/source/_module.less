@@ -1,0 +1,25 @@
+.small-banner {
+    position: relative;
+    overflow: hidden;
+    .lib-css(border-radius, 6px, 1);
+
+    .text {
+        position: absolute;
+        top: 13px;
+        text-align: center;
+        width: 100%;
+        font-size: 16px;
+        .lib-css(color, @color-white);
+
+        h3 {
+            font-size: 36px;
+            margin: 0 0 10px;
+            line-height: 1.25;
+            .lib-css(font-weight, @font-weight__heavier);
+        }
+        strong {
+            font-size: 22px;
+            .lib-css(color, @color-yellow-base);
+        }
+    }
+}
