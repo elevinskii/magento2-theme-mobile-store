@@ -2,7 +2,7 @@
 /**
  * Currency dropdown block
  */
-namespace IdealCode\MobileStore\Block;
+namespace IdealCode\Directory\Block;
 
 class Currency extends \Magento\Directory\Block\Currency
 {
