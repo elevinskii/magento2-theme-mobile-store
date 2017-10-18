@@ -2,7 +2,7 @@
 /**
  * Minicart sidebar block
  *
- * @var $block \IdealCode\MobileStore\Block\Cart\Sidebar
+ * @var $block \Magento\Checkout\Block\Cart\Sidebar
  */
 
 $jsPhrases = [
@@ -15,7 +15,7 @@ $jsPhrases = [
     <!-- ko if: getCartParam('summary_count') -->
         <span class="summary"
               data-bind="html: (getCartParam('summary_count') == 1 ? '<?= $jsPhrases[0] ?>' : '<?= $jsPhrases[1] ?>')
-                               .replace('%1', shoppingCartUrl).replace('%2', getLabel('<?= $block->getCurrentStoreLocale() ?>'))">
+                               .replace('%1', shoppingCartUrl).replace('%2', getCartParam('summary_label'))">
         </span>
         <!-- ko template: getTemplate() --><!-- /ko -->
     <!-- /ko -->

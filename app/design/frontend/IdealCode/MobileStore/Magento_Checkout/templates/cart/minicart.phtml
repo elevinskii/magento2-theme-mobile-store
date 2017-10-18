@@ -2,7 +2,7 @@
 /**
  * Minicart block in header
  *
- * @var $block \IdealCode\MobileStore\Block\Cart\Sidebar
+ * @var $block \Magento\Checkout\Block\Cart\Sidebar
  */
 ?>
 <div class="cart" data-block="minicart">
@@ -11,7 +11,7 @@
             <span class="block">
                 <h3><?= __('My Cart') ?></h3>
                 <span class="action toggle">
-                    <!-- ko text: getLabel('<?= $block->getCurrentStoreLocale() ?>') --><!-- /ko -->
+                    <!-- ko text: getCartParam('summary_label') --><!-- /ko -->
                     <!-- ko if: getCartParam('subtotal') -->
                         <span data-bind="html: ' — '+getCartParam('subtotal')"></span>
                     <!-- /ko -->

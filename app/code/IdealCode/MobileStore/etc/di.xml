@@ -2,5 +2,4 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Magento\Directory\Block\Currency" type="IdealCode\MobileStore\Block\Currency" />
-    <preference for="Magento\Checkout\Block\Cart\Sidebar" type="IdealCode\MobileStore\Block\Cart\Sidebar" />
 </config>
