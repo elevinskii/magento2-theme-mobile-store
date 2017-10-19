@@ -1,0 +1,42 @@
+<?php
+/**
+ * Item cart renderer block
+ *
+ * @var $block \Magento\Checkout\Block\Cart\Item\Renderer
+ */
+?>
+<tr>
+    <td class="image">
+        <?php $image = $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?>
+        <?php if($block->hasProductUrl()): ?>
+            <a href="<?= $block->getProductUrl() ?>" title="<?= $block->getProductName() ?>">
+                <?= $image ?>
+            </a>
+        <?php else: ?>
+            <?= $image ?>
+        <?php endif; ?>
+    </td>
+    <td class="name">
+        <?php if($block->hasProductUrl()): ?>
+            <a href="<?= $block->getProductUrl() ?>" title="<?= $block->getProductName() ?>" class="product-name">
+                <?= $block->getProductName() ?>
+            </a>
+        <?php else: ?>
+            <div class="product-name">
+                <?= $block->getProductName() ?>
+            </div>
+        <?php endif; ?>
+    </td>
+    <td class="price">
+        <?= $block->getUnitPriceHtml($block->getItem()) ?>
+    </td>
+    <td class="quantity">
+        <input type="text" value="<?= $block->getQty() ?>" />
+    </td>
+    <td class="subtotal">
+        <?= $block->getRowTotalHtml($block->getItem()) ?>
+    </td>
+    <td class="actions">
+        <?= $block->getActions($block->getItem()) ?>
+    </td>
+</tr>

@@ -1,0 +1,41 @@
+table.cart {
+    td.image {
+        width: 15%;
+
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    td.name {
+        width: 35%;
+
+        .product-name {
+            font-size: 14px;
+            text-decoration: none;
+        }
+    }
+
+    td.price, td.quantity, td.subtotal {
+        width: 10%;
+    }
+
+    .actions {
+        a {
+            &:before {
+                margin-right: 8px;
+            }
+        }
+
+        .edit {
+            .lib-icon-font(
+                @_icon-font-content: @icon-edit
+            );
+        }
+        .remove {
+            .lib-icon-font(
+                @_icon-font-content: @icon-remove
+            );
+        }
+    }
+}

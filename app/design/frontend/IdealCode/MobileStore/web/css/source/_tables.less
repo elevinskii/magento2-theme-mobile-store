@@ -1,0 +1,16 @@
+table {
+    text-align: left;
+    border-collapse: collapse;
+    .lib-css(width, @table__width);
+
+    th, td {
+        vertical-align: top;
+        .lib-css(border-color, @table__border-color);
+        .lib-css(border-width, @table__border-width);
+        .lib-css(border-style, @table__border-style);
+        .lib-css(padding, @table-cell__padding);
+    }
+    th {
+        .lib-css(color, @table-th__color);
+    }
+}

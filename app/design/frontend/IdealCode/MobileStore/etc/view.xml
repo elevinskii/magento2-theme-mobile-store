@@ -19,6 +19,10 @@
                 <width>60</width>
                 <height>60</height>
             </image>
+            <image id="cart_page_product_thumbnail" type="small_image">
+                <width>75</width>
+                <height>75</height>
+            </image>
         </images>
     </media>
 </view>

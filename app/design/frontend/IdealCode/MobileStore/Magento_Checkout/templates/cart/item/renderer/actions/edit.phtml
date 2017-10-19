@@ -1,0 +1,14 @@
+<?php
+/**
+ * Configure item in cart block
+ *
+ * @var $block \Magento\Checkout\Block\Cart\Item\Renderer\Actions\Edit
+ */
+?>
+<?php if ($block->isProductVisibleInSiteVisibility()): ?>
+    <div>
+        <a href="<?= $block->getConfigureUrl() ?>" title="<?= __('Edit item') ?>" class="edit"><!--
+            --><?= __('Edit item') ?>
+        </a>
+    </div>
+<?php endif; ?>

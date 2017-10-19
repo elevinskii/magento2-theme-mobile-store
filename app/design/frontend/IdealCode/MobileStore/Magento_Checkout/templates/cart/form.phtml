@@ -1,0 +1,22 @@
+<?php
+/**
+ * Checkout cart block
+ *
+ * @var $block \Magento\Checkout\Block\Cart
+ */
+?>
+<table class="cart">
+    <thead>
+        <tr>
+            <th></th>
+            <th><?= __('Product Name') ?></th>
+            <th><?= __('Price') ?></th>
+            <th><?= __('Quantity') ?></th>
+            <th><?= __('Subtotal') ?></th>
+            <th><?= __('Actions') ?></th>
+        </tr>
+    </thead>
+    <?php foreach ($block->getItems() as $item): ?>
+        <?= $block->getItemHtml($item) ?>
+    <?php endforeach; ?>
+</table>
