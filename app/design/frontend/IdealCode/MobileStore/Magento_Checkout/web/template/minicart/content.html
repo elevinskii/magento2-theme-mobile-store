@@ -9,14 +9,14 @@
     <ul class="cart-content" data-bind="foreach: { data: getCartParam('items'), as: 'item' }">
         <!-- ko if: $index() < window.checkout.minicartMaxItemsVisible -->
             <!-- ko foreach: $parent.getRegion($parent.getItemRenderer(item.product_type)) -->
-                <!-- ko template: {name: getTemplate(), data: item, afterRender: function() {$parents[1].initSidebar()}} --><!-- /ko -->
+                <!-- ko template: {name: getTemplate(), data: item} --><!-- /ko -->
             <!-- /ko -->
         <!-- /ko -->
     </ul>
 
     <div class="cart-footer actions">
         <a id="top-cart-btn-checkout"
-           data-bind="attr: {class: 'button' + (isAdditionalSidebar($element) ? ' large' : '')}, text: $t('Checkout order')">
+           data-bind="attr: {href: getCheckoutUrl(), class: 'button' + (isAdditionalSidebar($element) ? ' large' : '')}, text: $t('Checkout order')">
         </a>
         <a class="button"
            data-bind="attr: {href: shoppingCartUrl}, visible: !isAdditionalSidebar($element), text: $t('My Cart')">
