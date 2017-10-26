@@ -2,17 +2,24 @@
 /**
  * Search form in header
  *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
  * @var $block \Magento\Framework\View\Element\Template
- * @var $helper \Magento\Search\Helper\Data
  */
+
+/** @var \Magento\Search\Helper\Data $helper */
 $helper = $this->helper('Magento\Search\Helper\Data');
 ?>
 <form class="search" action="<?= $helper->getResultUrl() ?>">
-    <input
-            type="text"
+    <input  type="text"
+            data-mage-init='{"quickSearch":{
+                "url": "<?= $helper->getSuggestUrl() ?>",
+                "suggest": "header .suggest"
+            }}'
+            autocomplete="off"
             name="<?= $helper->getQueryParamName() ?>"
             value="<?= $helper->getEscapedQueryText() ?>"
             maxlength="<?= $helper->getMaxQueryLength() ?>"
     />
-    <button><?= $block->escapeHtml(__('Search')) ?></button>
+    <button type="submit"><?= __('Search') ?></button>
+    <div class="suggest"></div>
 </form>

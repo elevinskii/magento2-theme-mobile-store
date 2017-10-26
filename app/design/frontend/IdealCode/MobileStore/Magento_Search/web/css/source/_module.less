@@ -15,5 +15,34 @@ header {
             border-bottom-left-radius: 0;
             box-shadow: none;
         }
+
+        .suggest {
+            z-index: 5;
+            position: absolute;
+            width: 202px;
+            .lib-css(background-color, @color-white);
+            .lib-css(box-shadow, 0 0 5px rgba(0, 0, 0, 0.18), 1);
+
+            a {
+                display: block;
+                text-decoration: none;
+                padding: 10px;
+                color: #333;
+                font-size: 12px;
+                .lib-clearer();
+            }
+            img {
+                float: left;
+                margin-right: 3px;
+            }
+            .old-price {
+                margin-left: 5px;
+                text-decoration: line-through;
+            }
+
+            li.selected {
+                .lib-css(background, @color-blue-base);
+            }
+        }
     }
 }

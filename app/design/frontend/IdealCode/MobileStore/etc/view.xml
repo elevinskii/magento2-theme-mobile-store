@@ -23,6 +23,10 @@
                 <width>75</width>
                 <height>75</height>
             </image>
+            <image id="search_suggest_product_thumbnail" type="thumbnail">
+                <width>40</width>
+                <height>40</height>
+            </image>
         </images>
     </media>
 </view>
