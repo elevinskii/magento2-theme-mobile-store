@@ -11,5 +11,6 @@ if(method_exists($block, 'getItemCollection')) {
 } elseif(method_exists($block, 'getItems')) {
     $block->setLoadedProductCollection($block->getItems());
 }
+$block->setImageId('small_products_list');
 
 echo $block->toHtml();

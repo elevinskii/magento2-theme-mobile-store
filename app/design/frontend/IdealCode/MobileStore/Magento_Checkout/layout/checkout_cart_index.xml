@@ -3,5 +3,12 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="cart.summary" remove="true" />
+        <referenceBlock name="crosssell.product.addto" remove="true" />
+
+        <referenceBlock name="checkout.cart.crosssell">
+            <arguments>
+                <argument name="title" xsi:type="string">Cross-Sells Products</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>

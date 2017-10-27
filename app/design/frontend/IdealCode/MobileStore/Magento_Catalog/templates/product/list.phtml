@@ -11,7 +11,7 @@ $productCollection = $block->getLoadedProductCollection();
 $title = $block->getTitle();
 $noFoundLabel = $block->getNoFoundLabel();
 ?>
-<?php if($productCollection->count()): ?>
+<?php if(count($productCollection)): ?>
     <div class="product-list-block">
         <?php if($title): ?>
             <h3><?= __($title) ?></h3>
@@ -24,7 +24,7 @@ $noFoundLabel = $block->getNoFoundLabel();
                 <?php $name = $product->getName(); ?>
                 <li>
                     <div class="wrap">
-                        <?php $image = $block->getImage($product, 'category_page_list') ?>
+                        <?php $image = $block->getImage($product, $block->getImageId() ?: 'category_page_list') ?>
                         <?php if($url): ?>
                             <div class="image">
                                 <a href="<?= $url ?>" title="<?= $name ?>">

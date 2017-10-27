@@ -15,6 +15,10 @@
                 <width>190</width>
                 <height>190</height>
             </image>
+            <image id="small_products_list" type="small_image">
+                <width>150</width>
+                <height>150</height>
+            </image>
             <image id="compare_sidebar_block" type="thumbnail">
                 <width>60</width>
                 <height>60</height>
