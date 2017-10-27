@@ -2,7 +2,9 @@
 /**
  * Widget product list redirects to catalog list
  *
- * @var \IdealCode\CatalogWidget\Block\Product\ProductsList
+ * @var $block \Magento\CatalogWidget\Block\Product\ProductsList
  */
 $block->setTemplate('Magento_Catalog::product/list.phtml');
+$block->setLoadedProductCollection($block->getProductCollection());
+
 echo $block->toHtml();

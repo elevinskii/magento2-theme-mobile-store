@@ -1,0 +1,15 @@
+<?php
+/**
+ * Product list block
+ *
+ * @var $block \Magento\Catalog\Block\Product\AbstractProduct
+ */
+$block->setTemplate('Magento_Catalog::product/list.phtml');
+
+if(method_exists($block, 'getItemCollection')) {
+    $block->setLoadedProductCollection($block->getItemCollection());
+} elseif(method_exists($block, 'getItems')) {
+    $block->setLoadedProductCollection($block->getItems());
+}
+
+echo $block->toHtml();

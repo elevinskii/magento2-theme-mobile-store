@@ -69,7 +69,6 @@
         <move element="page.main.title" destination="content.top" />
 
         <!-- Remove from page.wrapper/main.content/columns/main -->
-        <referenceContainer name="content.aside" remove="true" />
         <referenceBlock name="authentication-popup" remove="true" />
         <referenceContainer name="content.bottom" remove="true" />
 

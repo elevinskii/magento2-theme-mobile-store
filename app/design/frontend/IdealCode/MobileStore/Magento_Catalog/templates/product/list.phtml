@@ -2,57 +2,66 @@
 /**
  * Category product list
  *
- * @var $block \Magento\Catalog\Block\Product\ListProduct
+ * @var $block \Magento\Catalog\Block\Product\AbstractProduct
  */
 
+/** @var \Magento\Eav\Model\Entity\Collection\AbstractCollection */
 $productCollection = $block->getLoadedProductCollection();
+
+$title = $block->getTitle();
+$noFoundLabel = $block->getNoFoundLabel();
 ?>
 <?php if($productCollection->count()): ?>
-    <?= $block->getToolbarHtml() ?>
-    <ul class="product-list">
-        <?php /** @var \Magento\Catalog\Model\Product $product */ ?>
-        <?php foreach($productCollection as $product): ?>
-            <?php $url = $product->getProductUrl(); ?>
-            <?php $name = $product->getName(); ?>
-            <li>
-                <div class="wrap">
-                    <?php $image = $block->getImage($product, 'category_page_list') ?>
-                    <?php if($url): ?>
-                        <div class="image">
-                            <a href="<?= $url ?>" title="<?= $name ?>">
+    <div class="product-list-block">
+        <?php if($title): ?>
+            <h3><?= __($title) ?></h3>
+        <?php endif; ?>
+        <?= $block->getToolbarHtml() ?>
+        <ul class="product-list">
+            <?php /** @var \Magento\Catalog\Model\Product $product */ ?>
+            <?php foreach($productCollection as $product): ?>
+                <?php $url = $product->getProductUrl(); ?>
+                <?php $name = $product->getName(); ?>
+                <li>
+                    <div class="wrap">
+                        <?php $image = $block->getImage($product, 'category_page_list') ?>
+                        <?php if($url): ?>
+                            <div class="image">
+                                <a href="<?= $url ?>" title="<?= $name ?>">
+                                    <?= $image->toHtml() ?>
+                                </a>
+                                <?php if($product->getPrice() != $product->getFinalPrice()): ?>
+                                    <div class="sale"><?= __('Sale') ?></div>
+                                <?php endif; ?>
+                            </div>
+                            <?= $block->getProductPrice($product) ?>
+                            <div class="name">
+                                <a href="<?= $url ?>" title="<?= $name ?>"><?= $name ?></a>
+                            </div>
+                        <?php else: ?>
+                            <div class="image">
                                 <?= $image->toHtml() ?>
-                            </a>
-                            <?php if($product->getPrice() != $product->getFinalPrice()): ?>
-                                <div class="sale"><?= __('Sale') ?></div>
-                            <?php endif; ?>
-                        </div>
-                        <?= $block->getProductPrice($product) ?>
-                        <div class="name">
-                            <a href="<?= $url ?>" title="<?= $name ?>"><?= $name ?></a>
-                        </div>
-                    <?php else: ?>
-                        <div class="image">
-                            <?= $image->toHtml() ?>
-                        </div>
-                        <div class="name"><?= $name ?></div>
-                    <?php endif; ?>
-                    <?php if($product->isSaleable()): ?>
-                        <form action="<?= $block->getAddToCartPostParams($product)['action'] ?>" class="to-cart">
-                            <button class="action tocart large" title="<?= __('Add to Cart') ?>">
-                                <?= __('Add to Cart') ?>
-                            </button>
-                        </form>
-                    <?php endif; ?>
-                    <?php if($addToBlock = $block->getChildBlock('addto')): ?>
-                        <div class="addto">
-                            <?= $addToBlock->setProduct($product)->getChildHtml() ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-    <?= $block->getToolbarHtml() ?>
+                            </div>
+                            <div class="name"><?= $name ?></div>
+                        <?php endif; ?>
+                        <?php if($product->isSaleable()): ?>
+                            <form action="<?= $block->getAddToCartUrl($product) ?>" class="to-cart">
+                                <button class="action tocart large" title="<?= __('Add to Cart') ?>">
+                                    <?= __('Add to Cart') ?>
+                                </button>
+                            </form>
+                        <?php endif; ?>
+                        <?php if($addToBlock = $block->getChildBlock('addto')): ?>
+                            <div class="addto">
+                                <?= $addToBlock->setProduct($product)->getChildHtml() ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <?= $block->getToolbarHtml() ?>
+    </div>
     <script type="text/x-magento-init">
     {
         ".product-list .to-cart": {
@@ -62,6 +71,6 @@ $productCollection = $block->getLoadedProductCollection();
         }
     }
     </script>
-<?php else: ?>
-    <p><?= __('There are no items in section.') ?></p>
+<?php elseif($noFoundLabel): ?>
+    <p><?= __($noFoundLabel) ?></p>
 <?php endif; ?>
