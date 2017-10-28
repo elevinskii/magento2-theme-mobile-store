@@ -11,11 +11,19 @@
                 <width>90</width>
                 <height>90</height>
             </image>
-            <image id="category_page_list" type="small_image">
+            <image id="category_page_list_base" type="small_image">
                 <width>190</width>
                 <height>190</height>
             </image>
-            <image id="small_products_list" type="small_image">
+            <image id="category_page_list_second" type="image">
+                <width>190</width>
+                <height>190</height>
+            </image>
+            <image id="small_products_list_base" type="small_image">
+                <width>150</width>
+                <height>150</height>
+            </image>
+            <image id="small_products_list_second" type="image">
                 <width>150</width>
                 <height>150</height>
             </image>
