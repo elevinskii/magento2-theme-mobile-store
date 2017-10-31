@@ -39,15 +39,16 @@ define([
             if(elem.is('.disabled')) {
                 return false;
             }
+            elem.addClass('disabled');
 
             var formKey = $('input[name="form_key"]').val();
             if (formKey) {
                 params.data.form_key = formKey;
             }
 
-            var msg = $.mage.__(elem.is('[data-loading]') ? elem.data('loading') : 'Loading..');
-            if(msg) {
-                elem.addClass('disabled').attr('title', msg).text(msg);
+            var msg = $.mage.__('Loading..');
+            if(msg && $.trim(elem.text())) {
+                elem.attr('title', msg).text(msg);
             }
 
             $.ajax({

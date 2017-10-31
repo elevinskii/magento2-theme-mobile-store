@@ -3,11 +3,7 @@
         <!-- ko if: is_visible_in_site_visibility -->
             <a data-bind="attr: {href: configure_url, title: $t('Edit item')}" class="edit"></a>
         <!-- /ko -->
-        <a href="#"
-           data-bind="attr: {'data-ajax': remove_url, title: $t('Remove item')}"
-           data-loading=""
-           class="remove">
-        </a>
+        <a href="#" data-bind="attr: {'data-ajax': remove_url, title: $t('Remove item')}" class="remove"></a>
     </div>
 
     <!-- ko if: product_has_url -->
