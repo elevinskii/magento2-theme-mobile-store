@@ -8,10 +8,7 @@ define([
     $.widget('mage.catalogAddToCart', {
 
         options: {
-            processStart: null,
-            processStop: null,
             minicartSelector: '[data-block="minicart"]',
-            messagesSelector: '[data-placeholder="messages"]',
             productStatusSelector: '.stock.available',
             addToCartButtonSelector: '.action.tocart',
             addToCartButtonDisabledClass: 'disabled',
@@ -31,10 +28,6 @@ define([
             });
         },
 
-        isLoaderEnabled: function() {
-            return this.options.processStart && this.options.processStop;
-        },
-
         ajaxSubmit: function(form) {
             var self = this;
             $(self.options.minicartSelector).trigger('contentLoading');
@@ -48,26 +41,10 @@ define([
                 data: data,
                 type: 'post',
                 dataType: 'json',
-                beforeSend: function() {
-                    if(self.isLoaderEnabled()) {
-                        $('body').trigger(self.options.processStart);
-                    }
-                },
                 success: function(res) {
-                    if(self.isLoaderEnabled()) {
-                        $('body').trigger(self.options.processStop);
-                    }
-
                     if(res.backUrl) {
                         window.location = res.backUrl;
                         return;
-                    }
-                    if(res.messages) {
-                        $(self.options.messagesSelector).html(res.messages);
-                    }
-                    if(res.minicart) {
-                        $(self.options.minicartSelector).replaceWith(res.minicart);
-                        $(self.options.minicartSelector).trigger('contentUpdated');
                     }
                     if(res.product && res.product.statusText) {
                         $(self.options.productStatusSelector)
