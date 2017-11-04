@@ -1,0 +1,16 @@
+<?php
+/**
+ * New Customer block template
+ *
+ * @var $block \Magento\Customer\Block\Form\Login\Info
+ */
+?>
+<?php if ($block->getRegistration()->isAllowed()): ?>
+<div class="register login-block">
+    <h2><?= __('New Customers') ?></h2>
+    <p><?= __('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
+    <a href="<?= $block->getCreateAccountUrl() ?>" class="button large">
+        <?= __('Create an account') ?>
+    </a>
+</div>
+<?php endif; ?>

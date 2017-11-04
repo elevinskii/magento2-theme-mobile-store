@@ -1,0 +1,29 @@
+.login-block {
+    border: 1px solid #c7c7c7;
+    padding: 20px;
+    width: 49%;
+    min-height: 330px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    .lib-css(background-color, @color-white);
+    .lib-css(border-radius, 5px, 1);
+
+    &.register {
+        float: left;
+        background-image: url("@{baseDir}images/bg-register.gif");
+    }
+    &.login {
+        float: right;
+        background-image: url("@{baseDir}images/bg-login.gif");
+    }
+
+    h2 {
+        padding: 0 0 15px 0;
+        border-bottom: 1px solid #c7c7c7;
+        margin-bottom: 20px;
+        font-size: 12px;
+        font-weight: normal;
+        text-transform: uppercase;
+        .lib-css(color, @color-blue-base);
+    }
+}
