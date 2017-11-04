@@ -8,7 +8,12 @@
                    template="Magento_Theme::js/components.phtml">
                 <arguments>
                     <argument name="jsLayout" xsi:type="array">
-                        <item name="Magento_Theme/js/dataAjax" xsi:type="array" />
+                        <item name="body" xsi:type="array">
+                            <item name="Magento_Theme/js/dataAjax" xsi:type="array" />
+                        </item>
+                        <item name="form" xsi:type="array">
+                            <item name="loader" xsi:type="array" />
+                        </item>
                     </argument>
                 </arguments>
             </block>

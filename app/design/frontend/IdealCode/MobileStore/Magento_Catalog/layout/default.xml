@@ -5,10 +5,12 @@
         <referenceBlock name="common.head.components">
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
-                    <item name="Magento_Ui/js/core/app" xsi:type="array">
-                        <item name="components" xsi:type="array">
-                            <item name="compareProducts" xsi:type="array">
-                                <item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products</item>
+                    <item name="*" xsi:type="array">
+                        <item name="Magento_Ui/js/core/app" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="compareProducts" xsi:type="array">
+                                    <item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products</item>
+                                </item>
                             </item>
                         </item>
                     </item>

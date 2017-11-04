@@ -7,8 +7,6 @@
 ?>
 <?php if($block->getData('jsLayout')): ?>
 <script type="text/x-magento-init">
-{
-    "body": <?= $block->getJsLayout() ?>
-}
+    <?= $block->getJsLayout() ?>
 </script>
 <?php endif; ?>
