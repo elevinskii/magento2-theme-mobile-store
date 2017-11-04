@@ -7,15 +7,13 @@
 ?>
 <div class="cart" data-block="minicart">
     <a href="#" data-bind="scope: 'minicart_content'">
-        <span data-bind="blockLoader: isLoading">
-            <span class="block">
-                <h3><?= __('My Cart') ?></h3>
-                <span class="action toggle">
-                    <!-- ko text: getCartParam('summary_label') --><!-- /ko -->
-                    <!-- ko if: getCartParam('subtotal') -->
-                        <span data-bind="html: ' — '+getCartParam('subtotal')"></span>
-                    <!-- /ko -->
-                </span>
+        <span class="block">
+            <h3><?= __('My Cart') ?></h3>
+            <span class="action toggle">
+                <!-- ko text: getCartParam('summary_label') --><!-- /ko -->
+                <!-- ko if: getCartParam('subtotal') -->
+                    <span data-bind="html: ' — '+getCartParam('subtotal')"></span>
+                <!-- /ko -->
             </span>
         </span>
     </a>
@@ -44,9 +42,11 @@
 </script>
 <script type="text/x-magento-init">
 {
-    "*": {
+    "[data-block=\"minicart\"]": {
         "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>,
-        "Magento_Ui/js/block-loader": ""
+        "loader": {
+            "icon": "<?= $block->getViewFileUrl('images/loader-1.gif') ?>"
+        }
     }
 }
 </script>

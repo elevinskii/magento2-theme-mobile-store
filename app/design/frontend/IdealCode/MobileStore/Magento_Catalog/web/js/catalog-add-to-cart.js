@@ -30,7 +30,7 @@ define([
 
         ajaxSubmit: function(form) {
             var self = this;
-            $(self.options.minicartSelector).trigger('contentLoading');
+            $(self.options.minicartSelector).trigger('processStart');
             self.disableAddToCartButton(form);
 
             var data = form.serialize();

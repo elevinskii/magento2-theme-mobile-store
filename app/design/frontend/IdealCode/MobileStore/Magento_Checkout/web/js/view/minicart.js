@@ -16,24 +16,19 @@ define([
          * @override
          */
         initialize: function() {
-            var self = this,
-                cartData = customerData.get('cart');
+            var cartData = customerData.get('cart');
 
             this.update(cartData());
             cartData.subscribe(function(updatedCart) {
-                this.isLoading(false);
+                $('[data-block="minicart"]').trigger('processStop');
                 this.update(updatedCart);
             }, this);
-            $('[data-block="minicart"]').on('contentLoading', function() {
-                self.isLoading(true);
-            });
             if(cartData().website_id !== window.checkout.websiteId) {
                 customerData.reload(['cart'], false);
             }
 
             return this._super();
         },
-        isLoading: ko.observable(false),
 
         /**
          * @param {String} productType
