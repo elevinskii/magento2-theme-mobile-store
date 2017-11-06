@@ -1,0 +1,25 @@
+<?php
+/**
+ * Authorization link
+ *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
+ * @var $block \Magento\Customer\Block\Account\AuthorizationLink
+ */
+
+/** @var \Magento\Framework\Json\Helper\Data $jsonHelper */
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+
+$ajax = '';
+if($block->isLoggedIn()) {
+    $ajax = $jsonHelper->jsonEncode([
+        'action' => $block->getHref(),
+        'data' => [],
+        'reload' => true
+    ]);
+}
+?>
+<li>
+    <a <?= $block->getLinkAttributes() ?> <?php if($ajax): ?>data-ajax='<?= $ajax ?>'<?php endif; ?>>
+        <?= $block->getLabel() ?>
+    </a>
+</li>

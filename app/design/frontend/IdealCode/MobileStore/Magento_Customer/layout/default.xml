@@ -19,7 +19,9 @@
         </referenceBlock>
         <referenceBlock name="register-link" remove="true" />
         <referenceBlock name="footer.column.account">
-            <block name="footer-authorization-link" class="Magento\Customer\Block\Account\AuthorizationLink" />
+            <block name="footer-authorization-link"
+                   class="Magento\Customer\Block\Account\AuthorizationLink"
+                   template="account/link/authorization.phtml" />
         </referenceBlock>
     </body>
 </page>

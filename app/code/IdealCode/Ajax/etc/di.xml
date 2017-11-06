@@ -5,6 +5,10 @@
         <plugin name="idealcode-customer-controller-account-loginpost"
                 type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
     </type>
+    <type name="Magento\Customer\Controller\Account\Logout">
+        <plugin name="idealcode-customer-controller-account-logout"
+                type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
 
     <type name="Magento\Catalog\Controller\Product\Compare\Add">
         <plugin name="idealcode-catalog-controller-product-compare-add"
