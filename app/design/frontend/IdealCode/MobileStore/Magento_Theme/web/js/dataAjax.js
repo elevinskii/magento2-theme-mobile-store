@@ -21,7 +21,19 @@ define([
             var self = this,
                 events = {};
 
-            events['click [data-ajax]'] = function (event) {
+            events['submit form[data-ajax]'] = function(event) {
+                var data = {};
+                $(event.target).serializeArray().forEach(function(entry) {
+                    data[entry.name] = entry.value;
+                });
+
+                var ajax = $(event.target).data('ajax');
+                ajax.data = data;
+
+                self._ajax($(event.target), ajax);
+                return false;
+            };
+            events['click a[data-ajax]'] = function(event) {
                 self._ajax($(event.target), $(event.target).data('ajax'));
                 return false;
             };
@@ -29,32 +41,60 @@ define([
         },
 
         /**
+         * Add form key to data request
+         * @param data
+         * @returns {*}
+         * @private
+         */
+        _addFormKey: function(data) {
+            var formKey = $('input[name="form_key"]').val();
+            if (formKey) {
+                data.form_key = formKey;
+            }
+
+            return data;
+        },
+
+        /**
+         * Preloader implementation
+         * @param elem
+         * @private
+         */
+        _preloaderShow: function(elem) {
+            if(!elem.is('form')) {
+                var msg = $.mage.__('Loading..');
+                if(msg && $.trim(elem.text())) {
+                    elem.attr('title', msg).text(msg);
+                }
+            }
+        },
+
+        /**
          * Processing ajax request
          * @param elem
-         * @param params
+         * @param ajax
          * @returns {boolean}
          * @private
          */
-        _ajax: function(elem, params) {
+        _ajax: function(elem, ajax) {
             if(elem.is('.disabled')) {
                 return false;
             }
             elem.addClass('disabled');
-
-            var formKey = $('input[name="form_key"]').val();
-            if (formKey) {
-                params.data.form_key = formKey;
-            }
-
-            var msg = $.mage.__('Loading..');
-            if(msg && $.trim(elem.text())) {
-                elem.attr('title', msg).text(msg);
-            }
+            this._preloaderShow(elem);
 
             $.ajax({
-                type: 'post',
-                url: params.action,
-                data: params.data
+                method: 'post',
+                url: ajax.action,
+                data: this._addFormKey(ajax.data),
+                showLoader: elem.is('form'),
+                loaderContext: elem,
+                success: function(response) {
+                    elem.removeClass('disabled');
+                    if(response.success) {
+                        location.reload();
+                    }
+                }
             });
         }
     });

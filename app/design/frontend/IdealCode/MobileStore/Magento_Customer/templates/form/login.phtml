@@ -1,0 +1,35 @@
+<?php
+/**
+ * Customer login form template
+ *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+
+/** @var \Magento\Framework\Json\Helper\Data $jsonHelper */
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+?>
+<div class="login login-block">
+    <h2><?= __('Registered Customers') ?></h2>
+    <p><?= __('If you have an account with us, please log in.') ?></p>
+    <form data-ajax='<?= $jsonHelper->jsonEncode(['action' => $block->getPostActionUrl()]) ?>'>
+        <?= $block->getChildHtml('messages') ?>
+        <div class="row">
+            <label for="email">
+                <?= __('Email') ?>
+                <span class="required">*</span>
+            </label>
+            <input id="email" type="text" name="login[username]" />
+        </div>
+        <div class="row">
+            <label for="password">
+                <?= __('Password') ?>
+                <span class="required">*</span>
+            </label>
+            <input id="password" type="password" name="login[password]" />
+        </div>
+        <div class="actions">
+            <button class="large"><?= __('Login') ?></button>
+        </div>
+    </form>
+</div>

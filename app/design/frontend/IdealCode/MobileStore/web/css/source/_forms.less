@@ -1,3 +1,27 @@
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
     .lib-form-element-input(@_type: input-text);
+}
+
+form {
+    position: relative;
+
+    .row {
+        margin-bottom: 7px;
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            .lib-css(color, @color-black);
+            .lib-css(font-weight, @font-weight__bold);
+
+            .required {
+                .lib-css(color, @color-blue-base);
+            }
+        }
+    }
+
+    .actions {
+        margin-top: 20px;
+    }
 }
