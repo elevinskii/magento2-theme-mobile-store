@@ -87,8 +87,9 @@ define([
                 method: 'post',
                 url: ajax.action,
                 data: this._addFormKey(ajax.data),
-                showLoader: elem.is('form'),
-                loaderContext: elem,
+                beforeSend: function() {
+                    elem.trigger('processStart');
+                },
                 success: function(response) {
                     elem.removeClass('disabled');
                     if(response.success) {

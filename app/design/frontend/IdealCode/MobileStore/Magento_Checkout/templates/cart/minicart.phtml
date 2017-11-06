@@ -30,23 +30,18 @@ unset($config['captcha']);
         </span>
     </a>
     <?php if($block->getIsNeedToDisplaySideBar()): ?>
-        <div class="sidebar cart-sidebar" data-bind="scope: 'minicart_content'">
+        <div class="sidebar cart-sidebar"
+             data-bind="scope: 'minicart_content'"
+             data-mage-init='{"loader":{}, "dropdownDialog":{
+                 "appendTo": "header .cart",
+                 "triggerTarget": "header .cart > a",
+                 "closeOnMouseLeave": false,
+                 "parentClass": "active",
+                 "triggerClass": "active",
+                 "buttons": []
+             }}'>
             <!-- ko template: getTemplate() --><!-- /ko -->
         </div>
-        <script type="text/x-magento-init">
-        {
-            "header .sidebar": {
-                "dropdownDialog": {
-                    "appendTo": "header .cart",
-                    "triggerTarget": "header .cart > a",
-                    "closeOnMouseLeave": false,
-                    "parentClass": "active",
-                    "triggerClass": "active",
-                    "buttons": []
-                }
-            }
-        }
-        </script>
     <?php endif; ?>
 </div>
 <script>

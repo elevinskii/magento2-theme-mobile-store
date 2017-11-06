@@ -20,7 +20,7 @@ define([
 
             this.update(cartData());
             cartData.subscribe(function(updatedCart) {
-                $('[data-block="minicart"]').trigger('processStop');
+                $('[data-block="minicart"], .cart-sidebar').trigger('processStop');
                 this.update(updatedCart);
             }, this);
             if(cartData().website_id !== window.checkout.websiteId) {
