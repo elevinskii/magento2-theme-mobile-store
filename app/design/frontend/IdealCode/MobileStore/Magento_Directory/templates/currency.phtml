@@ -9,24 +9,18 @@
 <?php if ($block->getCurrencyCount() > 1): ?>
     <div class="switcher switcher-currency">
         <a href="#" class="action toggle"><?= $block->getCurrentCurrencySymbol() ?></a>
-        <ul class="dropdown">
-            <?php foreach ($block->getCurrencies() as $_code => $_name): ?>
-                <li><a href="#" data-post='<?= $block->getSwitchCurrencyPostData($_code) ?>'><?= $_name ?> - <?= $_code ?></a></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-    <script type="text/x-magento-init">
-    {
-        ".switcher-currency ul" : {
-            "dropdownDialog" : {
+        <ul class="dropdown"
+            data-mage-init='{"dropdownDialog":{
                 "appendTo": ".switcher-currency",
                 "triggerTarget": ".switcher-currency .toggle",
                 "closeOnMouseLeave": false,
                 "parentClass": "active",
                 "triggerClass": "active",
                 "buttons": []
-            }
-        }
-    }
-    </script>
+            }}'>
+            <?php foreach ($block->getCurrencies() as $_code => $_name): ?>
+                <li><a href="#" data-post='<?= $block->getSwitchCurrencyPostData($_code) ?>'><?= $_name ?> - <?= $_code ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php endif; ?>
