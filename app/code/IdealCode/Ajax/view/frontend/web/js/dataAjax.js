@@ -1,7 +1,8 @@
 define([
     'jquery',
-    'jquery/ui'
-], function($) {
+    'jquery/ui',
+    'Magento_Customer/js/customer-data'
+], function($, jqueryUi, customerData) {
 
     $.widget('idealCode.dataAjax', {
 
@@ -11,10 +12,14 @@ define([
          */
         _create: function() {
             this._bind();
+
+            customerData.get('messages').subscribe(function() {
+                $('.messages').trigger('processStop');
+            });
         },
 
         /**
-         * Bind events for links
+         * Bind events for links and forms
          * @private
          */
         _bind: function() {
@@ -92,7 +97,7 @@ define([
                 },
                 success: function(response) {
                     elem.removeClass('disabled');
-                    if(response.success) {
+                    if(response.success && ajax.reload) {
                         location.reload();
                     }
                 }

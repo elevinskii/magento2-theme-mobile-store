@@ -7,8 +7,4 @@
     <preference for="Magento\Wishlist\Helper\Data" type="IdealCode\Wishlist\Helper\Data" />
     <preference for="Magento\Wishlist\Model\AuthenticationState" type="IdealCode\Wishlist\Model\AuthenticationState" />
     <preference for="Magento\Wishlist\Model\Wishlist" type="IdealCode\Wishlist\Model\Wishlist" />
-
-    <type name="Magento\Wishlist\Controller\AbstractIndex">
-        <plugin name="idealcode-wishlist-controller-index" type="IdealCode\Wishlist\Plugin\Controller\AbstractIndex" />
-    </type>
 </config>

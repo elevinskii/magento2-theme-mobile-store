@@ -5,9 +5,4 @@
                 type="IdealCode\Catalog\CustomerData\CompareProducts" />
     <preference for="Magento\Catalog\Model\Product\ProductList\Toolbar"
                 type="IdealCode\Catalog\Model\Product\ProductList\Toolbar" />
-
-    <type name="Magento\Catalog\Controller\Product\Compare">
-        <plugin name="idealcode-catalog-controller-compare"
-                type="IdealCode\Catalog\Plugin\Controller\Product\Compare" />
-    </type>
 </config>

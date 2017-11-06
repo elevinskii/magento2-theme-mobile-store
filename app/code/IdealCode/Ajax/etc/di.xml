@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Controller\Account\LoginPost">
+        <plugin name="idealcode-customer-controller-account-loginpost"
+                type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
+
+    <type name="Magento\Catalog\Controller\Product\Compare\Add">
+        <plugin name="idealcode-catalog-controller-product-compare-add"
+                type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
+    <type name="Magento\Catalog\Controller\Product\Compare\Remove">
+        <plugin name="idealcode-catalog-controller-product-compare-remove"
+                type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
+    <type name="Magento\Catalog\Controller\Product\Compare\Clear">
+        <plugin name="idealcode-catalog-controller-product-compare-clear"
+                type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
+
+    <type name="Magento\Checkout\Controller\Cart\Delete">
+        <plugin name="idealcode-checkout-controller-cart-delete"
+                type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
+
+    <type name="Magento\Wishlist\Controller\Index\Add">
+        <plugin name="idealcode-wishlist-controller-index-add"
+                type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
+    <type name="Magento\Wishlist\Controller\Index\Remove">
+        <plugin name="idealcode-wishlist-controller-index-remove"
+                type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
+</config>

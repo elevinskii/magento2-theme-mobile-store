@@ -1,6 +1,6 @@
 <?php
 
-namespace IdealCode\Customer\Plugin\Controller;
+namespace IdealCode\Ajax\Plugin\Controller;
 
 class AjaxRequest
 {
