@@ -2,8 +2,20 @@
 /**
  * Minicart block in header
  *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
  * @var $block \Magento\Checkout\Block\Cart\Sidebar
  */
+
+/** @var \Magento\Framework\Json\Helper\Data $jsonHelper */
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+
+$config = $block->getConfig();
+unset($config['updateItemQtyUrl']);
+unset($config['removeItemUrl']);
+unset($config['imageTemplate']);
+unset($config['isRedirectRequired']);
+unset($config['autocomplete']);
+unset($config['captcha']);
 ?>
 <div class="cart" data-block="minicart">
     <a href="#" data-bind="scope: 'minicart_content'">
@@ -38,7 +50,7 @@
     <?php endif; ?>
 </div>
 <script>
-    window.checkout = <?= \Zend_Json::encode($block->getConfig()) ?>;
+    window.checkout = <?= $jsonHelper->jsonEncode($config) ?>;
 </script>
 <script type="text/x-magento-init">
 {
