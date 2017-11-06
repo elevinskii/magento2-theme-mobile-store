@@ -17,19 +17,6 @@ $welcomeMessage = $block->getWelcome();
             <span data-bind="html:'<?= $block->escapeHtml($welcomeMessage) ?>'"></span>
             <!-- /ko -->
         </p>
-        <script type="text/x-magento-init">
-        {
-            "*": {
-                "Magento_Ui/js/core/app": {
-                    "components": {
-                        "customer": {
-                            "component": "Magento_Customer/js/view/customer"
-                        }
-                    }
-                }
-            }
-        }
-        </script>
     <?php break; ?>
 
     <?php case 'other': ?>
