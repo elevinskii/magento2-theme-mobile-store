@@ -25,10 +25,10 @@
                    data-bind="attr: {'data-ajax': remove_url, class: 'remove'}">
                 </a>
                 <!-- ko if: product_url -->
-                    <a class="name" data-bind="attr: {href: product_url, title: name}, text: name"></a>
+                    <a class="link" data-bind="attr: {href: product_url, title: name}, text: name"></a>
                 <!-- /ko -->
                 <!-- ko ifnot: product_url -->
-                    <span class="name" data-bind="text: name"></span>
+                    <span class="link" data-bind="text: name"></span>
                 <!-- /ko -->
             </li>
         </ul>

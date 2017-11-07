@@ -112,9 +112,19 @@ header {
                 padding-top: 0;
                 border: 0;
             }
-            .name {
+            .link {
                 font-size: 14px;
                 text-decoration: none;
+
+                &.current {
+                    .lib-css(font-weight, @font-weight__bold);
+
+                    .lib-icon-font(
+                        @_icon-font-content: @icon-pointer-right,
+                        @_icon-font-size: 12px,
+                        @_icon-font-margin: 0 2px 0 0
+                    );
+                }
             }
 
             .lib-clearer();

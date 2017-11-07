@@ -9,10 +9,10 @@
         <ul data-bind="foreach: viewedProducts().items">
             <li>
                 <!-- ko if: url -->
-                    <a class="name" data-bind="attr: {href: url, title: name}, text: name"></a>
+                    <a class="link" data-bind="attr: {href: url, title: name}, text: name"></a>
                 <!-- /ko -->
                 <!-- ko ifnot: url -->
-                    <span class="name" data-bind="text: name"></span>
+                    <span class="link" data-bind="text: name"></span>
                 <!-- /ko -->
             </li>
         </ul>

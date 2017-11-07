@@ -1,0 +1,17 @@
+<?php
+/**
+ * Account block navigation
+ *
+ * @var $block \Magento\Framework\View\Element\Html\Links
+ */
+
+$child = $block->getChildHtml();
+?>
+<?php if($child): ?>
+    <div class="block">
+        <h2><?= __('My Account') ?></h2>
+        <ul>
+            <?= $child ?>
+        </ul>
+    </div>
+<?php endif; ?>

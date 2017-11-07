@@ -23,10 +23,10 @@
 
     <div class="info">
         <!-- ko if: product_has_url -->
-            <a data-bind="attr: {href: product_url}, text: product_name" class="name"></a>
+            <a class="link" data-bind="attr: {href: product_url}, text: product_name"></a>
         <!-- /ko -->
         <!-- ko ifnot: product_has_url -->
-            <span class="name" data-bind="text: product_name"></span>
+            <span class="link" data-bind="text: product_name"></span>
         <!-- /ko -->
 
         <div class="details">

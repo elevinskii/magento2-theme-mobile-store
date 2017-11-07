@@ -1,0 +1,14 @@
+<?php
+/**
+ * Current link block
+ *
+ * @var $block \Magento\Framework\View\Element\Html\Link\Current
+ */
+?>
+<li>
+    <a href="<?= $block->getHref() ?>"
+       title="<?= $block->getTitle() ? $block->getTitle() : $block->getLabel() ?>"
+       class="link<?php if($block->isCurrent()): ?> current<?php endif; ?>">
+        <?= $block->getLabel() ?>
+    </a>
+</li>
