@@ -34,12 +34,5 @@
                 </arguments>
             </block>
         </referenceBlock>
-        <referenceBlock name="footer.column.newsletter">
-            <block name="footer-info" class="Magento\Cms\Block\Block">
-                <arguments>
-                    <argument name="block_id" xsi:type="string">footer-info</argument>
-                </arguments>
-            </block>
-        </referenceBlock>
     </body>
 </page>
