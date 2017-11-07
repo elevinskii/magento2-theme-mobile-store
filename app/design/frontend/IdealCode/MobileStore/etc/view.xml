@@ -39,6 +39,19 @@
                 <width>40</width>
                 <height>40</height>
             </image>
+            <image id="product_page_image_small" type="thumbnail">
+                <width>102</width>
+                <height>102</height>
+            </image>
+            <image id="product_page_image_medium" type="image">
+                <width>310</width>
+                <height>310</height>
+            </image>
         </images>
     </media>
+    <vars module="Magento_Catalog">
+        <var name="gallery">
+            <var name="allowfullscreen">false</var>
+        </var>
+    </vars>
 </view>
