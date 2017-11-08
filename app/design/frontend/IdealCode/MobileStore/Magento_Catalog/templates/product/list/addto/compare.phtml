@@ -8,15 +8,26 @@
 
 /** @var \Magento\Catalog\Model\Product $product */
 $product = $block->getProduct();
+
 /** @var \Magento\Catalog\Helper\Product\Compare $helper */
 $helper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+
+/** @var \Magento\Framework\Json\Helper\Data $jsonHelper */
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+
+$addParams = $jsonHelper->jsonDecode($helper->getPostDataParams($product));
+$removeParams = $jsonHelper->jsonDecode($helper->getPostDataRemove($product));
+unset($addParams['data'][\Magento\Framework\App\ActionInterface::PARAM_NAME_URL_ENCODED]);
+unset($removeParams['data'][\Magento\Framework\App\ActionInterface::PARAM_NAME_URL_ENCODED]);
+
+$addParams['loader'] = $removeParams['loader'] = '.block.compare';
 ?>
 <div data-bind="scope: 'compareProducts'">
     <!-- ko ifnot: productInCompare('<?= $product->getId() ?>') -->
         <a href="#"
            title="<?= __('Add to Compare') ?>"
            data-bind="attr: {class: 'compare-action'}, text: '<?= __('Add to Compare') ?>'"
-           data-ajax='<?= $helper->getPostDataParams($product) ?>'>
+           data-ajax='<?= $jsonHelper->jsonEncode($addParams) ?>'>
             &nbsp;
         </a>
     <!-- /ko -->
@@ -24,7 +35,7 @@ $helper = $this->helper('Magento\Catalog\Helper\Product\Compare');
     <a href="#"
        title="<?= __('Remove from Compare') ?>"
        data-bind="attr: {class: 'compare-action'}, text: '<?= __('Remove from Compare') ?>'"
-       data-ajax='<?= $helper->getPostDataRemove($product) ?>'>
+       data-ajax='<?= $jsonHelper->jsonEncode($removeParams) ?>'>
         &nbsp;
     </a>
     <!-- /ko -->

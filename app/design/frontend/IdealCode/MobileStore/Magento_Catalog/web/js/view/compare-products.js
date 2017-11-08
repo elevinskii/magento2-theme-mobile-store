@@ -1,13 +1,18 @@
 define([
+    'jquery',
     'uiComponent',
     'Magento_Customer/js/customer-data'
-], function (Component, customerData) {
+], function($, Component, customerData) {
     'use strict';
 
     return Component.extend({
-        initialize: function () {
+        initialize: function() {
             this._super();
             this.compareProducts = customerData.get('compare-products');
+
+            this.compareProducts.subscribe(function() {
+                $('.block.compare').trigger('processStop');
+            });
         },
 
         /**
@@ -16,8 +21,8 @@ define([
          */
         productInCompare: function(id) {
             if(this.compareProducts().items) {
-                for (var key in this.compareProducts().items) {
-                    if (this.compareProducts().items[key].id == id) {
+                for(var key in this.compareProducts().items) {
+                    if(this.compareProducts().items[key].id == id) {
                         return this.compareProducts().items[key];
                     }
                 }

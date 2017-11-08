@@ -93,7 +93,8 @@ define([
                 url: ajax.action,
                 data: this._addFormKey(ajax.data),
                 beforeSend: function() {
-                    elem.trigger('processStart');
+                    var loader = ajax.loader ? $(ajax.loader) : elem;
+                    loader.trigger('processStart');
                 },
                 success: function(response) {
                     elem.removeClass('disabled');
