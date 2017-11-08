@@ -1,6 +1,8 @@
 <?php
 /**
  * Viewed products block in sidebar
+ *
+ * @var $block \Magento\Framework\View\Element\Template
  */
 ?>
 <div data-bind="scope: 'viewedProducts'">
@@ -18,16 +20,3 @@
         </ul>
     </div>
 </div>
-<script type="text/x-magento-init">
-{
-    "*": {
-        "Magento_Ui/js/core/app": {
-            "components": {
-                "viewedProducts": {
-                    "component": "IdealCode_CatalogViewed/js/view/viewed-products"
-                }
-            }
-        }
-    }
-}
-</script>

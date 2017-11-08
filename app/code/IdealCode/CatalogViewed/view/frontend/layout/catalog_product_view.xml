@@ -2,10 +2,16 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="after.body.start">
-            <block name="viewed-add"
-                   class="IdealCode\CatalogViewed\Block\ViewedAdd"
-                   template="IdealCode_CatalogViewed::js/viewed_add.phtml" />
-        </referenceContainer>
+        <referenceBlock name="common.head.components">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="*" xsi:type="array">
+                        <item name="IdealCode_CatalogViewed/js/viewed-add"
+                              xsi:type="helper"
+                              helper="IdealCode\CatalogViewed\Helper\Data::getViewedAddParams" />
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>
