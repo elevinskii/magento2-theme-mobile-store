@@ -1,0 +1,12 @@
+<?php
+/**
+ * Customer wishlist
+ *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
+ * @var $block \Magento\Wishlist\Block\Customer\Wishlist
+ */
+?>
+<?php if($this->helper('Magento\Wishlist\Helper\Data')->isAllow()) : ?>
+    <?php $block->getChildBlock('items')->setItems($block->getWishlistItems()); ?>
+    <?= $block->getChildHtml('items') ?>
+<?php endif; ?>

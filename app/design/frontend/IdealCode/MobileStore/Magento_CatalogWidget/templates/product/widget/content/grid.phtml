@@ -4,7 +4,5 @@
  *
  * @var $block \Magento\CatalogWidget\Block\Product\ProductsList
  */
-$block->setTemplate('Magento_Catalog::product/list.phtml');
 $block->setLoadedProductCollection($block->getProductCollection());
-
-echo $block->toHtml();
+include($block->getTemplateFile('Magento_Catalog::product/list.phtml'));

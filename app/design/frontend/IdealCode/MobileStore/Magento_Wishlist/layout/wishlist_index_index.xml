@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer.wishlist.items"
+                        class="IdealCode\Wishlist\Block\Customer\Wishlist\Items"
+                        template="Magento_Catalog::product/list.phtml">
+            <arguments>
+                <argument name="no_found_label" xsi:type="string">Wishlist have no items.</argument>
+            </arguments>
+            <block name="customer.wishlist.addto"
+                   as="addto"
+                   class="Magento\Catalog\Block\Product\ProductList\Item\Container">
+                <block name="customer.wishlist.addto.wishlist"
+                       class="Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist"
+                       before="compare"
+                       template="catalog/product/list/addto/wishlist.phtml" />
+            </block>
+        </referenceBlock>
+    </body>
+</page>

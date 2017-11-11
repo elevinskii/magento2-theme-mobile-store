@@ -4,14 +4,13 @@
  *
  * @var $block \Magento\Catalog\Block\Product\AbstractProduct
  */
-$block->setTemplate('Magento_Catalog::product/list.phtml');
-
 if(method_exists($block, 'getItemCollection')) {
     $block->setLoadedProductCollection($block->getItemCollection());
 } elseif(method_exists($block, 'getItems')) {
     $block->setLoadedProductCollection($block->getItems());
 }
+
 $block->setBaseImageId('small_products_list_base');
 $block->setSecondImageId('small_products_list_second');
 
-echo $block->toHtml();
+include($block->getTemplateFile('Magento_Catalog::product/list.phtml'));
