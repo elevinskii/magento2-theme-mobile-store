@@ -99,7 +99,7 @@ define([
                 success: function(response) {
                     elem.removeClass('disabled');
                     if(response.success && ajax.reload) {
-                        location.reload();
+                        window.location = ajax.reload;
                     }
                 }
             });

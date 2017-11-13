@@ -14,7 +14,7 @@ if($block->isLoggedIn()) {
     $ajax = $jsonHelper->jsonEncode([
         'action' => $block->getHref(),
         'data' => [],
-        'reload' => true
+        'reload' => $block->getBaseUrl()
     ]);
 }
 ?>

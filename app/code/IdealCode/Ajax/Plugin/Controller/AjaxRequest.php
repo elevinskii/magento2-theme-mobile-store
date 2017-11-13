@@ -25,10 +25,11 @@ class AjaxRequest
     /**
      * @param \Magento\Framework\App\Action\Action $subject
      * @param $result
-     * @return mixed
      */
-    public function afterExecute(\Magento\Framework\App\Action\Action $subject, $result)
-    {
+    public function afterExecute(
+        \Magento\Framework\App\Action\Action $subject,
+        $result
+    ) {
         if($subject->getRequest()->isAjax()) {
             $isSuccess = count($this->messageManager->getMessages()->getErrors()) == 0;
 
