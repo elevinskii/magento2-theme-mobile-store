@@ -8,7 +8,7 @@
                     <item name="body" xsi:type="array">
                         <item name="IdealCode_Ajax/js/dataAjax" xsi:type="array" />
                     </item>
-                    <item name="form" xsi:type="array">
+                    <item name=".preloader" xsi:type="array">
                         <item name="loader" xsi:type="array" />
                     </item>
                 </argument>

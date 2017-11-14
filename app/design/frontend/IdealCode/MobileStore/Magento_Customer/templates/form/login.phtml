@@ -16,7 +16,7 @@ $ajax = [
 <div class="login login-block">
     <h2><?= __('Registered Customers') ?></h2>
     <p><?= __('If you have an account with us, please log in.') ?></p>
-    <form data-ajax='<?= $jsonHelper->jsonEncode($ajax) ?>'>
+    <form class="preloader" data-ajax='<?= $jsonHelper->jsonEncode($ajax) ?>'>
         <?= $block->getChildHtml('messages') ?>
         <div class="row">
             <label for="email">

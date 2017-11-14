@@ -17,7 +17,7 @@ unset($config['isRedirectRequired']);
 unset($config['autocomplete']);
 unset($config['captcha']);
 ?>
-<div class="cart" data-block="minicart">
+<div class="cart preloader" data-block="minicart">
     <a href="#" data-bind="scope: 'minicart_content'">
         <span class="block">
             <h3><?= __('My Cart') ?></h3>
@@ -30,9 +30,9 @@ unset($config['captcha']);
         </span>
     </a>
     <?php if($block->getIsNeedToDisplaySideBar()): ?>
-        <div class="sidebar cart-sidebar"
+        <div class="sidebar cart-sidebar preloader"
              data-bind="scope: 'minicart_content'"
-             data-mage-init='{"loader":{}, "dropdownDialog":{
+             data-mage-init='{"dropdownDialog":{
                  "appendTo": "header .cart",
                  "triggerTarget": "header .cart > a",
                  "closeOnMouseLeave": false,
@@ -50,8 +50,7 @@ unset($config['captcha']);
 <script type="text/x-magento-init">
 {
     "[data-block=\"minicart\"]": {
-        "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>,
-        "loader": {}
+        "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
     }
 }
 </script>

@@ -10,7 +10,7 @@ $jsPhrases = [
     $block->escapeJsQuote(__('There are <a href=\'%1\'>%2</a> in your cart.'))
 ];
 ?>
-<div class="block cart-sidebar" data-block="minicart" data-bind="scope: 'minicart_content'">
+<div class="block cart-sidebar preloader" data-block="minicart" data-bind="scope: 'minicart_content'">
     <h2><?= __('My Cart') ?></h2>
     <!-- ko if: getCartParam('summary_count') -->
         <span class="summary"

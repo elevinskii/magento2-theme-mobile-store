@@ -5,7 +5,7 @@
  * @var $block \IdealCode\Catalog\Block\Product\Compare\Sidebar
  */
 ?>
-<div class="block compare" data-bind="scope: 'compareProducts'" data-mage-init='{"loader": {}}'>
+<div class="block compare preloader" data-bind="scope: 'compareProducts'">
     <h2><?=  __('Compare Products') ?></h2>
     <!-- ko if: compareProducts().count -->
         <ul data-bind="foreach: compareProducts().items">
