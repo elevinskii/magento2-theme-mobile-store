@@ -5,7 +5,7 @@
  * @var $block \Magento\Wishlist\Block\Link
  */
 ?>
-<li class="link wishlist" data-bind="scope: 'wishlist'">
+<li data-bind="scope: 'wishlist'">
     <a <?= $block->getLinkAttributes() ?>>
         <?= $block->getLabel() ?>
         <!-- ko if: wishlist().counter -->

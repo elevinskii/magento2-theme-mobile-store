@@ -1,0 +1,17 @@
+<?php
+/**
+ * Current link block
+ *
+ * @var $block \Magento\Framework\View\Element\Html\Link\Current
+ */
+?>
+<li data-bind="scope: 'wishlist'">
+    <a href="<?= $block->getHref() ?>"
+       title="<?= $block->getTitle() ? $block->getTitle() : $block->getLabel() ?>"
+       class="link<?php if($block->isCurrent()): ?> current<?php endif; ?>">
+        <?= $block->getLabel() ?>
+        <!-- ko if: wishlist().counter -->
+            <span data-bind="text: '(' + wishlist().counter + ')'"></span>
+        <!-- /ko -->
+    </a>
+</li>

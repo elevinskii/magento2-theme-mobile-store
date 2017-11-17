@@ -3,7 +3,7 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="customer-account-navigation-wish-list-link"
-                        template="Magento_Theme::html/link/current.phtml">
+                        template="Magento_Wishlist::link/current.phtml">
             <arguments>
                 <argument name="label" xsi:type="string" translate="true">My Wish List</argument>
             </arguments>
