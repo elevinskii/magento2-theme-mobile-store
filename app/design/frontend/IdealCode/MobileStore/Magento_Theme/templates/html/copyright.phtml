@@ -5,11 +5,16 @@
  * @var $block \Magento\Theme\Block\Html\Footer
  */
 $copyright = $block->getCopyright();
+$additionalCopyright = $block->getLayout()
+    ->createBlock('Magento\Cms\Block\Block')
+    ->setBlockId('additional-copyright')
+    ->toHtml();
 ?>
-<?php if($copyright): ?>
+<?php if($copyright || $additionalCopyright): ?>
     <div class="copyright">
         <div class="content">
             <?= $copyright ?>
+            <?= $additionalCopyright  ?>
         </div>
     </div>
 <?php endif; ?>

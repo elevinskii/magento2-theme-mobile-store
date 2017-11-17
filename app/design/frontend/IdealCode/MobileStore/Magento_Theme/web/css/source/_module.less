@@ -185,15 +185,6 @@ footer {
         li {
             display: block;
             padding-bottom: 3px;
-
-            a {
-                .lib-link(
-                    @_link-color: @color-white,
-                    @_link-text-decoration: false,
-                    @_link-color-hover: @color-yellow-base,
-                    @_link-text-decoration-hover: none
-                );
-            }
         }
     }
 
@@ -202,5 +193,15 @@ footer {
         font-size: 11px;
         color: #777;
         .lib-css(background, @page__background-color);
+    }
+
+    li a,
+    .copyright a {
+        .lib-link(
+            @_link-color: @color-white,
+            @_link-text-decoration: false,
+            @_link-color-hover: @color-yellow-base,
+            @_link-text-decoration-hover: none
+        );
     }
 }
