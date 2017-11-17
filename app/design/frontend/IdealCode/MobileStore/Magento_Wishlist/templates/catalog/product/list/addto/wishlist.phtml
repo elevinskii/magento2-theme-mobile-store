@@ -8,8 +8,20 @@
 
 /** @var \Magento\Catalog\Model\Product $product */
 $product = $block->getProduct();
+
 /** @var \Magento\Wishlist\Helper\Data $helper */
 $helper = $this->helper('Magento\Wishlist\Helper\Data');
+
+/** @var \Magento\Framework\Json\Helper\Data $jsonHelper */
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+
+$addParams = $jsonHelper->jsonDecode($helper->getAddParams($product));
+unset($addParams['data'][\Magento\Framework\App\ActionInterface::PARAM_NAME_URL_ENCODED]);
+
+$removeParams = [
+    'action' => $block->getUrl('wishlist/index/remove'),
+    'data' => ['item' => '%1']
+];
 ?>
 <?php if ($helper->isAllow()): ?>
     <div data-bind="scope: 'wishlist'">
@@ -17,14 +29,17 @@ $helper = $this->helper('Magento\Wishlist\Helper\Data');
             <a href="#"
                title="<?= __('Add to Wishlist') ?>"
                data-bind="attr: {class: 'add-to-wishlist'}, text: '<?= __('Add to Wishlist') ?>'"
-               data-ajax='<?= $block->getAddToWishlistParams($product) ?>'>
+               data-ajax='<?= $jsonHelper->jsonEncode($addParams) ?>'>
                 &nbsp;
             </a>
         <!-- /ko -->
         <!-- ko with: productInWishlist('<?= $product->getId() ?>') -->
             <a href="#"
                title="<?= __('Remove from Wishlist') ?>"
-               data-bind="attr: {class: 'remove-from-wishlist', 'data-ajax': $data.remove}, text: '<?= __('Remove from Wishlist') ?>'">
+               data-bind="attr: {
+                   'class': 'remove-from-wishlist',
+                   'data-ajax': new String('<?= $block->escapeHtml($jsonHelper->jsonEncode($removeParams)) ?>').replace('%1', wishlistId)
+               }, text: '<?= __('Remove from Wishlist') ?>'">
                 &nbsp;
             </a>
         <!-- /ko -->

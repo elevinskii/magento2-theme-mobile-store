@@ -9,10 +9,11 @@ class Wishlist extends \Magento\Wishlist\CustomerData\Wishlist
      */
     public function getSectionData()
     {
-        $data = parent::getSectionData();
-        $data['extra'] = $data['counter'] ? $this->getExtra() : [];
-
-        return $data;
+        $counter = $this->getCounter();
+        return [
+            'counter' => $counter,
+            'extra' => $counter ? $this->getExtra() : []
+        ];
     }
 
     /**
@@ -27,20 +28,19 @@ class Wishlist extends \Magento\Wishlist\CustomerData\Wishlist
 
     /**
      * Get extra information for wishlist items
+     *
+     * @return array
      */
     protected function getExtra()
     {
-        /** @var \Magento\Wishlist\Helper\Data $helper */
-        $helper = $this->wishlistHelper;
-        $collection = $helper->getWishlistItemCollection()->setInStockFilter();
+        $collection = $this->wishlistHelper->getWishlistItemCollection()->setInStockFilter();
 
         $items = [];
         /** @var \Magento\Wishlist\Model\Item $wishlistItem */
         foreach($collection as $wishlistItem) {
-            $product = $wishlistItem->getProduct();
             $items[] = [
-                'id' => $product->getId(),
-                'remove' => $helper->getRemoveParams($wishlistItem, true)
+                'id' => $wishlistItem->getProductId(),
+                'wishlistId' => $wishlistItem->getId()
             ];
         }
 
