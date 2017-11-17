@@ -7,6 +7,11 @@
                         template="Magento_Catalog::product/list.phtml">
             <arguments>
                 <argument name="no_found_label" xsi:type="string">Wishlist have no items.</argument>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name=".product-preloader" xsi:type="array">
+                        <item name="loader" xsi:type="array" />
+                    </item>
+                </argument>
             </arguments>
             <block name="customer.wishlist.addto"
                    as="addto"
@@ -14,7 +19,15 @@
                 <block name="customer.wishlist.addto.wishlist"
                        class="Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist"
                        before="compare"
-                       template="catalog/product/list/addto/wishlist.phtml" />
+                       template="catalog/product/list/addto/wishlist.phtml">
+                    <arguments>
+                        <argument name="reload_block" xsi:type="array">
+                            <item name="name" xsi:type="string">customer.wishlist</item>
+                            <item name="handle" xsi:type="string">wishlist_index_index</item>
+                            <item name="insert-to" xsi:type="string">.product-list-block</item>
+                        </argument>
+                    </arguments>
+                </block>
             </block>
         </referenceBlock>
     </body>

@@ -22,6 +22,11 @@ $removeParams = [
     'action' => $block->getUrl('wishlist/index/remove'),
     'data' => ['item' => '%1']
 ];
+
+$reloadBlock = $block->getReloadBlock();
+if($reloadBlock) {
+    $removeParams['data']['reload-block'] = $reloadBlock;
+}
 ?>
 <?php if ($helper->isAllow()): ?>
     <div data-bind="scope: 'wishlist'">

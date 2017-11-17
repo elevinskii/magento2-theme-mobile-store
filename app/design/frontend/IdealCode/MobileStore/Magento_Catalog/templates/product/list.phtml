@@ -2,11 +2,18 @@
 /**
  * Category product list
  *
+ * @var $this \Magento\Framework\View\TemplateEngine\Php
  * @var $block \Magento\Catalog\Block\Product\AbstractProduct
  */
 
 /** @var \Magento\Eav\Model\Entity\Collection\AbstractCollection */
 $productCollection = $block->getLoadedProductCollection();
+
+/** @var \Magento\Framework\Json\Helper\Data $jsonHelper */
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+
+$jsLayout = $jsonHelper->jsonDecode($block->getJsLayout());
+$jsLayout['.product-list .to-cart']['catalogAddToCart'] = [];
 
 $title = $block->getTitle();
 $noFoundLabel = $block->getNoFoundLabel();
@@ -25,55 +32,55 @@ $secondImageId = $block->getSecondImageId() ?: 'category_page_list_second';
                 <?php $url = $product->getProductUrl(); ?>
                 <?php $name = $product->getName(); ?>
                 <li>
-                    <div class="wrap">
-                        <?php $baseImage = $block->getImage($product, $baseImageId, ['style' => 'display: block']); ?>
-                        <?php $secondImage = $block->getImage($product, $secondImageId, ['style' => 'display: none']); ?>
-                        <div class="image">
-                            <?php if($url): ?>
-                                <a href="<?= $url ?>" title="<?= $name ?>">
-                            <?php endif; ?>
-                            <?= $baseImage->toHtml() ?>
-                            <?= $secondImage->toHtml() ?>
-                            <?php if($url): ?>
-                                </a>
-                            <?php endif; ?>
-                            <?php if($product->getPrice() != $product->getFinalPrice()): ?>
-                                <div class="sale"><?= __('Sale') ?></div>
-                            <?php endif; ?>
-                        </div>
-                        <?= $block->getProductPrice($product) ?>
-                        <div class="name">
-                            <?php if($url): ?>
-                                <a href="<?= $url ?>" title="<?= $name ?>"><?= $name ?></a>
-                            <?php else: ?>
-                                <?= $name ?>
-                            <?php endif; ?>
-                        </div>
-                        <?php if($product->isSaleable()): ?>
-                            <form action="<?= $block->getAddToCartUrl($product) ?>" class="to-cart">
-                                <button class="action tocart large" title="<?= __('Add to Cart') ?>">
-                                    <?= __('Add to Cart') ?>
-                                </button>
-                            </form>
-                        <?php endif; ?>
-                        <?php if($addToBlock = $block->getChildBlock('addto')): ?>
-                            <div class="addto">
-                                <?= $addToBlock->setProduct($product)->getChildHtml() ?>
+                    <div class="product-preloader">
+                        <div class="wrap">
+                            <?php $baseImage = $block->getImage($product, $baseImageId, ['style' => 'display: block']); ?>
+                            <?php $secondImage = $block->getImage($product, $secondImageId, ['style' => 'display: none']); ?>
+                            <div class="image">
+                                <?php if($url): ?>
+                                    <a href="<?= $url ?>" title="<?= $name ?>">
+                                <?php endif; ?>
+                                <?= $baseImage->toHtml() ?>
+                                <?= $secondImage->toHtml() ?>
+                                <?php if($url): ?>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if($product->getPrice() != $product->getFinalPrice()): ?>
+                                    <div class="sale"><?= __('Sale') ?></div>
+                                <?php endif; ?>
                             </div>
-                        <?php endif; ?>
+                            <?= $block->getProductPrice($product) ?>
+                            <div class="name">
+                                <?php if($url): ?>
+                                    <a href="<?= $url ?>" title="<?= $name ?>"><?= $name ?></a>
+                                <?php else: ?>
+                                    <?= $name ?>
+                                <?php endif; ?>
+                            </div>
+                            <?php if($product->isSaleable()): ?>
+                                <form action="<?= $block->getAddToCartUrl($product) ?>" class="to-cart">
+                                    <button class="action tocart large" title="<?= __('Add to Cart') ?>">
+                                        <?= __('Add to Cart') ?>
+                                    </button>
+                                </form>
+                            <?php endif; ?>
+                            <?php if($addToBlock = $block->getChildBlock('addto')): ?>
+                                <div class="addto">
+                                    <?= $addToBlock->setProduct($product)->getChildHtml() ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </li>
             <?php endforeach; ?>
         </ul>
         <?= $block->getToolbarHtml() ?>
     </div>
-    <script type="text/x-magento-init">
-    {
-        ".product-list .to-cart": {
-            "catalogAddToCart": {}
-        }
-    }
-    </script>
+    <?php if($jsLayout): ?>
+        <script type="text/x-magento-init">
+            <?= $jsonHelper->jsonEncode($jsLayout) ?>
+        </script>
+    <?php endif; ?>
 <?php elseif($noFoundLabel): ?>
     <p><?= __($noFoundLabel) ?></p>
 <?php endif; ?>

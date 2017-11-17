@@ -98,8 +98,14 @@ define([
                 },
                 success: function(response) {
                     elem.removeClass('disabled');
-                    if(response.success && ajax.reload) {
-                        window.location = ajax.reload;
+                    if(response.success) {
+                        if(ajax['load-page']) {
+                            window.location = ajax['load-page'];
+                        } else if(ajax['data']['reload-block']) {
+                            var insertTo = ajax['data']['reload-block']['insert-to'];
+                            $(insertTo).replaceWith(response.block);
+                            $(insertTo).trigger('contentUpdated').applyBindings();
+                        }
                     }
                 }
             });
