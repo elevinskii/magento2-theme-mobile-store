@@ -37,9 +37,15 @@ class AjaxRequest
         $result
     ) {
         if($subject->getRequest()->isAjax()) {
+            $messages = $this->messageManager->getMessages(true);
             $result = [
-                'success' => count($this->messageManager->getMessages()->getErrors()) == 0
+                'success' => count($messages->getErrors()) == 0,
+                'message' => ''
             ];
+            /** @var \Magento\Framework\Message\MessageInterface $message */
+            foreach($messages->getItems() as $message) {
+                $result['message'] .= $message->getText();
+            }
 
             $reloadBlock = $subject->getRequest()->getParam('reload-block');
             if($reloadBlock) {

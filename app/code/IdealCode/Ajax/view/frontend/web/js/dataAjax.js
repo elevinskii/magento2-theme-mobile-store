@@ -1,8 +1,7 @@
 define([
     'jquery',
-    'jquery/ui',
-    'Magento_Customer/js/customer-data'
-], function($, jqueryUi, customerData) {
+    'jquery/ui'
+], function($, jqueryUi) {
 
     $.widget('idealCode.dataAjax', {
 
@@ -12,10 +11,6 @@ define([
          */
         _create: function() {
             this._bind();
-
-            customerData.get('messages').subscribe(function() {
-                $('.messages').trigger('processStop');
-            });
         },
 
         /**
@@ -34,6 +29,7 @@ define([
 
                 var ajax = $(event.target).data('ajax');
                 ajax.data = data;
+                ajax.action = $(event.target).attr('action');
 
                 self._ajax($(event.target), ajax);
                 return false;
@@ -105,6 +101,18 @@ define([
                             var insertTo = ajax['data']['reload-block']['insert-to'];
                             $(insertTo).replaceWith(response.block);
                             $(insertTo).trigger('contentUpdated').applyBindings();
+                        }
+                    }
+
+                    if(elem.is('form')) {
+                        elem.trigger('processStop');
+
+                        if(response.message) {
+                            elem.find('[data-placeholder="messages"]')
+                                .html(response.message)
+                                .removeClass('success')
+                                .removeClass('errors')
+                                .addClass(response.success ? 'success' : 'errors');
                         }
                     }
                 }

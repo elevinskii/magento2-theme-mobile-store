@@ -54,7 +54,7 @@
         <referenceBlock name="skip_to_content.target" remove="true" />
 
         <!-- Remove from page.wrapper/main.content/columns.top -->
-        <referenceContainer name="page.messages" remove="true" />
+        <referenceContainer name="page.messages" display="false" />
         <referenceBlock name="page.main.title">
             <arguments>
                 <argument name="header_css_class" xsi:type="string">title</argument>

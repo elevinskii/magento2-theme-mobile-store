@@ -8,16 +8,15 @@
 
 /** @var \Magento\Framework\Json\Helper\Data $jsonHelper */
 $jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
-$ajax = [
-    'action' => $block->getPostActionUrl(),
-    'load-page' => $block->getBeforeAuthUrl()
-];
 ?>
 <div class="login login-block">
     <h2><?= __('Registered Customers') ?></h2>
     <p><?= __('If you have an account with us, please log in.') ?></p>
-    <form class="preloader" data-ajax='<?= $jsonHelper->jsonEncode($ajax) ?>'>
-        <?= $block->getChildHtml('messages') ?>
+    <form class="preloader"
+          action="<?= $block->getPostActionUrl() ?>"
+          method="post"
+          data-ajax='<?= $jsonHelper->jsonEncode(['load-page' => $block->getBeforeAuthUrl()]) ?>'>
+        <?= $block->getLayout()->getBlock('ajax.message.placeholder')->toHtml() ?>
         <div class="row">
             <label for="email">
                 <?= __('Email') ?>
