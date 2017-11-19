@@ -108,6 +108,7 @@ define([
                         elem.trigger('processStop');
 
                         if(response.message) {
+                            $('[data-placeholder="messages"]').html('');
                             elem.find('[data-placeholder="messages"]')
                                 .html(response.message)
                                 .removeClass('success')

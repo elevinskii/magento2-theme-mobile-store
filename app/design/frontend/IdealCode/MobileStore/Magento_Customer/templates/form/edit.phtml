@@ -1,0 +1,89 @@
+<?php
+/**
+ * Edit customer form
+ *
+ * @var \Magento\Customer\Block\Form\Edit $block
+ */
+
+$editPostUrl = $block->getUrl('customer/account/editPost');
+$messageBlock = $block->getLayout()->getBlock('ajax.message.placeholder');
+$customer = $block->getCustomer();
+?>
+<h3 class="subtitle"><?= __('Change Data') ?></h3>
+<form class="preloader edit-customer" action="<?= $editPostUrl ?>" method="post" data-ajax="{}">
+    <?= $messageBlock->toHtml() ?>
+    <div class="row">
+        <label for="firstname">
+            <?= __('First Name') ?>
+            <span class="required">*</span>
+        </label>
+        <input id="firstname" type="text" name="firstname" value="<?= $customer->getFirstname() ?>" />
+    </div>
+    <div class="row">
+        <label for="lastname">
+            <?= __('Last Name') ?>
+            <span class="required">*</span>
+        </label>
+        <input id="lastname" type="text" name="lastname" value="<?= $customer->getLastname() ?>" />
+    </div>
+    <div class="actions">
+        <button class="large"><?= __('Change Data') ?></button>
+    </div>
+</form>
+
+<h3 class="subtitle"><?= __('Change Email') ?></h3>
+<form class="preloader edit-customer" action="<?= $editPostUrl ?>" method="post" data-ajax="{}">
+    <input type="hidden" name="change_email" value="1" />
+    <input type="hidden" name="firstname" value="<?= $customer->getFirstname() ?>" />
+    <input type="hidden" name="lastname" value="<?= $customer->getLastname() ?>" />
+    <?= $messageBlock->toHtml() ?>
+    <div class="row">
+        <label for="email">
+            <?= __('Email') ?>
+            <span class="required">*</span>
+        </label>
+        <input id="email" type="text" name="email" value="<?= $customer->getEmail() ?>" />
+    </div>
+    <div class="row">
+        <label for="current_password">
+            <?= __('Current Password') ?>
+            <span class="required">*</span>
+        </label>
+        <input id="current_password" type="password" name="current_password" autocomplete="new-password" />
+    </div>
+    <div class="actions">
+        <button class="large"><?= __('Change Email') ?></button>
+    </div>
+</form>
+
+<h3 class="subtitle"><?= __('Change Password') ?></h3>
+<form class="preloader edit-customer" action="<?= $editPostUrl ?>" method="post" data-ajax="{}">
+    <input type="hidden" name="change_password" value="1" />
+    <input type="hidden" name="firstname" value="<?= $customer->getFirstname() ?>" />
+    <input type="hidden" name="lastname" value="<?= $customer->getLastname() ?>" />
+    <?= $messageBlock->toHtml() ?>
+    <div class="row">
+        <label for="password">
+            <?= __('New Password') ?>
+            <span class="required">*</span>
+        </label>
+        <input id="password" type="password" name="password" />
+    </div>
+    <div class="row">
+        <label for="password-confirmation">
+            <?= __('Confirm New Password') ?>
+            <span class="required">*</span>
+        </label>
+        <input id="password-confirmation" type="password" name="password-confirmation" />
+    </div>
+    <div class="row">
+        <label for="current_password">
+            <?= __('Current Password') ?>
+            <span class="required">*</span>
+        </label>
+        <input id="current_password" type="password" name="current_password" />
+    </div>
+    <div class="actions">
+        <button class="large"><?= __('Change Password') ?></button>
+    </div>
+</form>

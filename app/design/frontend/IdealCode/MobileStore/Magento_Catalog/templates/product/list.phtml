@@ -23,7 +23,7 @@ $secondImageId = $block->getSecondImageId() ?: 'category_page_list_second';
 <?php if(count($productCollection)): ?>
     <div class="product-list-block" data-mage-init='{"Magento_Catalog/js/product/list/list":{}}'>
         <?php if($title): ?>
-            <h3><?= __($title) ?></h3>
+            <h3 class="subtitle"><?= __($title) ?></h3>
         <?php endif; ?>
         <?= $block->getToolbarHtml() ?>
         <ul class="product-list">
